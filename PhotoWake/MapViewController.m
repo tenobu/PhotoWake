@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 
 #import "CustomAnnotation_Hata.h"
-#import "CustomAnnotation2.h"
+#import "CustomAnnotation_Photo.h"
 
 @interface MapViewController ()
 
@@ -62,7 +62,7 @@
 	[self.mapView addAnnotations: @[tt1, st1]];
 	
 	
-	CustomAnnotation2 *tt2 = [[CustomAnnotation2 alloc] init];
+	CustomAnnotation_Photo *tt2 = [[CustomAnnotation_Photo alloc] init];
 	
 	tt2.coordinate = CLLocationCoordinate2DMake( 34.074, 134.554 );
 	tt2.title = @"Tokyo Tower";
@@ -70,7 +70,7 @@
 	tt2.explanation = @"34.074, 134.556";
 	
 	// Tokyo Skytree
-	CustomAnnotation2 *st2 = [[CustomAnnotation2 alloc] init];
+	CustomAnnotation_Photo *st2 = [[CustomAnnotation_Photo alloc] init];
 	
 	st2.coordinate = CLLocationCoordinate2DMake( 34.076, 134.552 );
 	st2.title = @"Tokyo Skytree";
@@ -213,11 +213,11 @@ didDeselectAnnotationView: (MKAnnotationView *)view
 		
 		return annotationView;
 		
-	} else if ( [annotation isKindOfClass: [CustomAnnotation2 class]] ) {
+	} else if ( [annotation isKindOfClass: [CustomAnnotation_Photo class]] ) {
 		
-		CustomAnnotation2 *ca2 = (CustomAnnotation2 *)annotation;
+		CustomAnnotation_Photo *ca2 = (CustomAnnotation_Photo *)annotation;
 		
-		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier: @"CustomAnnotation2"];
+		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier: @"CustomAnnotation_Photo"];
 		
 		if ( annotationView == nil ) {
 			

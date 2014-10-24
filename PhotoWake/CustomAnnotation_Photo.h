@@ -1,5 +1,5 @@
 //
-//  CustomAnnotation2.h
+//  CustomAnnotation_Photo.h
 //  MapEditor
 //
 //  Created by 寺内 信夫 on 2014/10/23.
@@ -10,7 +10,7 @@
 
 #import "CustomAnnotation.h"
 
-@interface CustomAnnotation2 : CustomAnnotation
+@interface CustomAnnotation_Photo : CustomAnnotation
 
 - (MKAnnotationView *)annotationView;
 

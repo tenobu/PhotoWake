@@ -25,10 +25,12 @@
 		9890B3E019FA111400FC2E20 /* Setting_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3DF19FA111400FC2E20 /* Setting_40x40.png */; };
 		9890B3E919FA124500FC2E20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E219FA124500FC2E20 /* CustomAnnotation.m */; };
 		9890B3EA19FA124500FC2E20 /* CustomAnnotation_Hata.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */; };
-		9890B3EB19FA124500FC2E20 /* CustomAnnotation2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E619FA124500FC2E20 /* CustomAnnotation2.m */; };
+		9890B3EB19FA124500FC2E20 /* CustomAnnotation_Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E619FA124500FC2E20 /* CustomAnnotation_Photo.m */; };
 		9890B3EC19FA124500FC2E20 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E819FA124500FC2E20 /* MapViewController.m */; };
 		9890B3EE19FA13E400FC2E20 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9890B3ED19FA13E400FC2E20 /* MapKit.framework */; };
 		9890B3F019FA1BA000FC2E20 /* hata.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3EF19FA1BA000FC2E20 /* hata.png */; };
+		9890B3FB19FA27EF00FC2E20 /* little25_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3FA19FA27EF00FC2E20 /* little25_2.png */; };
+		9890B3FE19FA29E600FC2E20 /* CustomAnnotation_GPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,12 +69,15 @@
 		9890B3E219FA124500FC2E20 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		9890B3E319FA124500FC2E20 /* CustomAnnotation_Hata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_Hata.h; sourceTree = "<group>"; };
 		9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_Hata.m; sourceTree = "<group>"; };
-		9890B3E519FA124500FC2E20 /* CustomAnnotation2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation2.h; sourceTree = "<group>"; };
-		9890B3E619FA124500FC2E20 /* CustomAnnotation2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation2.m; sourceTree = "<group>"; };
+		9890B3E519FA124500FC2E20 /* CustomAnnotation_Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_Photo.h; sourceTree = "<group>"; };
+		9890B3E619FA124500FC2E20 /* CustomAnnotation_Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_Photo.m; sourceTree = "<group>"; };
 		9890B3E719FA124500FC2E20 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		9890B3E819FA124500FC2E20 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		9890B3ED19FA13E400FC2E20 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9890B3EF19FA1BA000FC2E20 /* hata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hata.png; sourceTree = "<group>"; };
+		9890B3FA19FA27EF00FC2E20 /* little25_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = little25_2.png; sourceTree = "<group>"; };
+		9890B3FC19FA29E600FC2E20 /* CustomAnnotation_GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_GPS.h; sourceTree = "<group>"; };
+		9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_GPS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +165,7 @@
 		9890B3C619F9F44F00FC2E20 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9890B3FA19FA27EF00FC2E20 /* little25_2.png */,
 				9890B3EF19FA1BA000FC2E20 /* hata.png */,
 				9890B3DF19FA111400FC2E20 /* Setting_40x40.png */,
 				9890B3DD19FA106100FC2E20 /* Slideshow_40x40.png */,
@@ -184,8 +190,10 @@
 				9890B3E219FA124500FC2E20 /* CustomAnnotation.m */,
 				9890B3E319FA124500FC2E20 /* CustomAnnotation_Hata.h */,
 				9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */,
-				9890B3E519FA124500FC2E20 /* CustomAnnotation2.h */,
-				9890B3E619FA124500FC2E20 /* CustomAnnotation2.m */,
+				9890B3E519FA124500FC2E20 /* CustomAnnotation_Photo.h */,
+				9890B3E619FA124500FC2E20 /* CustomAnnotation_Photo.m */,
+				9890B3FC19FA29E600FC2E20 /* CustomAnnotation_GPS.h */,
+				9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */,
 			);
 			name = Tokushima;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 				9890B3AC19F9F10700FC2E20 /* Main.storyboard in Resources */,
 				9890B3CF19F9F44F00FC2E20 /* movie42.png in Resources */,
 				9890B3B119F9F10700FC2E20 /* LaunchScreen.xib in Resources */,
+				9890B3FB19FA27EF00FC2E20 /* little25_2.png in Resources */,
 				9890B3CE19F9F44F00FC2E20 /* maps.png in Resources */,
 				9890B3DC19FA0E6600FC2E20 /* Tokushima_40x40.png in Resources */,
 				9890B3D019F9F44F00FC2E20 /* play2.png in Resources */,
@@ -322,11 +331,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9890B3EB19FA124500FC2E20 /* CustomAnnotation2.m in Sources */,
+				9890B3EB19FA124500FC2E20 /* CustomAnnotation_Photo.m in Sources */,
 				9890B3A619F9F10700FC2E20 /* AppDelegate.m in Sources */,
 				9890B3A319F9F10600FC2E20 /* main.m in Sources */,
 				9890B3EA19FA124500FC2E20 /* CustomAnnotation_Hata.m in Sources */,
 				9890B3E919FA124500FC2E20 /* CustomAnnotation.m in Sources */,
+				9890B3FE19FA29E600FC2E20 /* CustomAnnotation_GPS.m in Sources */,
 				9890B3EC19FA124500FC2E20 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
