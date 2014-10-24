@@ -30,6 +30,7 @@
 		9890B3EC19FA124500FC2E20 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E819FA124500FC2E20 /* MapViewController.m */; };
 		9890B3EE19FA13E400FC2E20 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9890B3ED19FA13E400FC2E20 /* MapKit.framework */; };
 		9890B3F019FA1BA000FC2E20 /* hata.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3EF19FA1BA000FC2E20 /* hata.png */; };
+		9890B3F719FA204A00FC2E20 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3F619FA204A00FC2E20 /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		9890B3E819FA124500FC2E20 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		9890B3ED19FA13E400FC2E20 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9890B3EF19FA1BA000FC2E20 /* hata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hata.png; sourceTree = "<group>"; };
+		9890B3F519FA204A00FC2E20 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		9890B3F619FA204A00FC2E20 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,8 @@
 		9890B3F219FA1CA700FC2E20 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				9890B3F519FA204A00FC2E20 /* CameraViewController.h */,
+				9890B3F619FA204A00FC2E20 /* CameraViewController.m */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9890B3EB19FA124500FC2E20 /* CustomAnnotation2.m in Sources */,
+				9890B3F719FA204A00FC2E20 /* CameraViewController.m in Sources */,
 				9890B3A919F9F10700FC2E20 /* ViewController.m in Sources */,
 				9890B3A619F9F10700FC2E20 /* AppDelegate.m in Sources */,
 				9890B3A319F9F10600FC2E20 /* main.m in Sources */,
