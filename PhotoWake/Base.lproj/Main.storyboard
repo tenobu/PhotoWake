@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0IH-BY-Ebu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Camera-->
@@ -34,13 +35,57 @@
                     <view key="view" contentMode="scaleToFill" id="Xvh-ba-qd7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X75-Bz-72j">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIH-bH-n7W">
+                                <rect key="frame" x="16" y="28" width="75" height="30"/>
+                                <state key="normal" title="徳島城公園">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNv-bK-mkB">
+                                <rect key="frame" x="16" y="66" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efc-28-bO6">
+                                <rect key="frame" x="537" y="28" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pG4-fo-ice">
+                                <rect key="frame" x="15" y="95" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="X75-Bz-72j" secondAttribute="bottom" id="6fo-hA-b2h"/>
+                            <constraint firstItem="Efc-28-bO6" firstAttribute="top" secondItem="IGA-bb-KXA" secondAttribute="bottom" constant="8" id="WFZ-xN-VlC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Efc-28-bO6" secondAttribute="trailing" constant="1" id="Z9X-09-5h7"/>
+                            <constraint firstItem="X75-Bz-72j" firstAttribute="leading" secondItem="Xvh-ba-qd7" secondAttribute="leading" id="hJa-K2-fWz"/>
+                            <constraint firstItem="X75-Bz-72j" firstAttribute="top" secondItem="Xvh-ba-qd7" secondAttribute="top" id="tiO-ML-XsF"/>
+                            <constraint firstAttribute="trailing" secondItem="X75-Bz-72j" secondAttribute="trailing" id="wyu-0I-qt4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tokushima" image="Tokushima" id="N2e-DY-FTl"/>
+                    <connections>
+                        <outlet property="button_TokusimaJyou" destination="AIH-bH-n7W" id="zco-EF-kKA"/>
+                        <outlet property="button_bb1" destination="Efc-28-bO6" id="T1f-Zy-1ub"/>
+                        <outlet property="label_1" destination="yNv-bK-mkB" id="yX9-dQ-Hv3"/>
+                        <outlet property="label_2" destination="pG4-fo-ice" id="3Xn-qF-nw8"/>
+                        <outlet property="mapView" destination="X75-Bz-72j" id="DKK-2n-wjb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gry-b3-ZQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="874" y="-1257"/>
+            <point key="canvasLocation" x="874" y="-1284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g83-zj-0lq">

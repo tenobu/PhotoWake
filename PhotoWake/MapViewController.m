@@ -56,7 +56,7 @@
 	st1.coordinate = CLLocationCoordinate2DMake( 34.076, 134.557 );
 	st1.title = @"Tokyo Skytree";
 	st1.subtitle = @"opening in May 2012";
-	st1.sample = @"34.076, 134.557";
+	st1.explanation = @"34.076, 134.557";
 	
 	// add annotations to map
 	[self.mapView addAnnotations: @[tt1, st1]];
@@ -67,7 +67,7 @@
 	tt2.coordinate = CLLocationCoordinate2DMake( 34.074, 134.554 );
 	tt2.title = @"Tokyo Tower";
 	tt2.subtitle = @"opening in Dec 1958";
-	tt2.sample = @"34.074, 134.556";
+	tt2.explanation = @"34.074, 134.556";
 	
 	// Tokyo Skytree
 	CustomAnnotation2 *st2 = [[CustomAnnotation2 alloc] init];
@@ -75,7 +75,7 @@
 	st2.coordinate = CLLocationCoordinate2DMake( 34.076, 134.552 );
 	st2.title = @"Tokyo Skytree";
 	st2.subtitle = @"opening in May 2012";
-	st2.sample = @"34.076, 134.557";
+	st2.explanation = @"34.076, 134.557";
 	
 	// add annotations to map
 	[self.mapView addAnnotations: @[tt2, st2]];
@@ -173,7 +173,7 @@ calloutAccessoryControlTapped: (UIControl *)control
 	
 	sample.backgroundColor = [UIColor clearColor];
 	sample.font = [UIFont fontWithName:@"Helvetica" size: 13];
-	sample.text = ((CustomAnnotation *)view.annotation).sample;
+	sample.text = ((CustomAnnotation *)view.annotation).explanation;
 	sample.textColor = [UIColor whiteColor];
 	
 	// add view to callout

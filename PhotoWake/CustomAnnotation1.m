@@ -18,8 +18,8 @@
 	
 	annotationView.enabled = YES;
 	annotationView.canShowCallout = YES;
-	annotationView.image = [UIImage imageNamed: @"bb1.png"];
-	annotationView.frame = CGRectMake( 0, 0, 20, 20 );
+	annotationView.image = [UIImage imageNamed: @"hata.png"];
+	annotationView.frame = CGRectMake( 0, 0, 20, 30 );
 	annotationView.rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
 	
 	return annotationView;
