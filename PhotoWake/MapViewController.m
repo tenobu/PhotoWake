@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 
-#import "CustomAnnotation1.h"
+#import "CustomAnnotation_Hata.h"
 #import "CustomAnnotation2.h"
 
 @interface MapViewController ()
@@ -43,7 +43,7 @@
 	[self.mapView setRegion: region
 				   animated: YES];
 	
-	CustomAnnotation1 *tt1 = [[CustomAnnotation1 alloc] init];
+	CustomAnnotation_Hata *tt1 = [[CustomAnnotation_Hata alloc] init];
 	
 	tt1.coordinate = CLLocationCoordinate2DMake( 34.074, 134.556 );
 	tt1.title       = @"Tokyo Tower";
@@ -51,7 +51,7 @@
 	tt1.explanation = @"34.074, 134.556";
 	
 	// Tokyo Skytree
-	CustomAnnotation1 *st1 = [[CustomAnnotation1 alloc] init];
+	CustomAnnotation_Hata *st1 = [[CustomAnnotation_Hata alloc] init];
 	
 	st1.coordinate = CLLocationCoordinate2DMake( 34.076, 134.557 );
 	st1.title = @"Tokyo Skytree";
@@ -195,9 +195,9 @@ didDeselectAnnotationView: (MKAnnotationView *)view
 		   viewForAnnotation: (id)annotation
 {
 	
-	if ( [annotation isKindOfClass: [CustomAnnotation1 class]] ) {
+	if ( [annotation isKindOfClass: [CustomAnnotation_Hata class]] ) {
 	
-		CustomAnnotation1 *ca1 = (CustomAnnotation1 *)annotation;
+		CustomAnnotation_Hata *ca1 = (CustomAnnotation_Hata *)annotation;
 		
 		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier: @"CustomAnnotation1"];
 		

@@ -1,5 +1,5 @@
 //
-//  CustomAnnotation1.h
+//  CustomAnnotation_Hata.h
 //  MapEditor
 //
 //  Created by ビザンコムマック０９ on 2014/10/23.
@@ -10,7 +10,7 @@
 
 #import "CustomAnnotation.h"
 
-@interface CustomAnnotation1 : CustomAnnotation
+@interface CustomAnnotation_Hata : CustomAnnotation
 
 - (MKAnnotationView *)annotationView;
 

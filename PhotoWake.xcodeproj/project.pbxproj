@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9890B3A319F9F10600FC2E20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3A219F9F10600FC2E20 /* main.m */; };
 		9890B3A619F9F10700FC2E20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3A519F9F10700FC2E20 /* AppDelegate.m */; };
-		9890B3A919F9F10700FC2E20 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3A819F9F10700FC2E20 /* ViewController.m */; };
 		9890B3AC19F9F10700FC2E20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3AA19F9F10700FC2E20 /* Main.storyboard */; };
 		9890B3AE19F9F10700FC2E20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3AD19F9F10700FC2E20 /* Images.xcassets */; };
 		9890B3B119F9F10700FC2E20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3AF19F9F10700FC2E20 /* LaunchScreen.xib */; };
@@ -25,7 +24,7 @@
 		9890B3DE19FA106100FC2E20 /* Slideshow_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3DD19FA106100FC2E20 /* Slideshow_40x40.png */; };
 		9890B3E019FA111400FC2E20 /* Setting_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3DF19FA111400FC2E20 /* Setting_40x40.png */; };
 		9890B3E919FA124500FC2E20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E219FA124500FC2E20 /* CustomAnnotation.m */; };
-		9890B3EA19FA124500FC2E20 /* CustomAnnotation1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E419FA124500FC2E20 /* CustomAnnotation1.m */; };
+		9890B3EA19FA124500FC2E20 /* CustomAnnotation_Hata.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */; };
 		9890B3EB19FA124500FC2E20 /* CustomAnnotation2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E619FA124500FC2E20 /* CustomAnnotation2.m */; };
 		9890B3EC19FA124500FC2E20 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E819FA124500FC2E20 /* MapViewController.m */; };
 		9890B3EE19FA13E400FC2E20 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9890B3ED19FA13E400FC2E20 /* MapKit.framework */; };
@@ -48,8 +47,6 @@
 		9890B3A219F9F10600FC2E20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9890B3A419F9F10700FC2E20 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9890B3A519F9F10700FC2E20 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9890B3A719F9F10700FC2E20 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9890B3A819F9F10700FC2E20 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9890B3AB19F9F10700FC2E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9890B3AD19F9F10700FC2E20 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9890B3B019F9F10700FC2E20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -68,8 +65,8 @@
 		9890B3DF19FA111400FC2E20 /* Setting_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting_40x40.png; sourceTree = "<group>"; };
 		9890B3E119FA124500FC2E20 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		9890B3E219FA124500FC2E20 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
-		9890B3E319FA124500FC2E20 /* CustomAnnotation1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation1.h; sourceTree = "<group>"; };
-		9890B3E419FA124500FC2E20 /* CustomAnnotation1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation1.m; sourceTree = "<group>"; };
+		9890B3E319FA124500FC2E20 /* CustomAnnotation_Hata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_Hata.h; sourceTree = "<group>"; };
+		9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_Hata.m; sourceTree = "<group>"; };
 		9890B3E519FA124500FC2E20 /* CustomAnnotation2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation2.h; sourceTree = "<group>"; };
 		9890B3E619FA124500FC2E20 /* CustomAnnotation2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation2.m; sourceTree = "<group>"; };
 		9890B3E719FA124500FC2E20 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -127,8 +124,6 @@
 				9890B3F219FA1CA700FC2E20 /* Camera */,
 				9890B3F319FA1CD200FC2E20 /* Slideshow */,
 				9890B3F419FA1CE600FC2E20 /* Setting */,
-				9890B3A719F9F10700FC2E20 /* ViewController.h */,
-				9890B3A819F9F10700FC2E20 /* ViewController.m */,
 				9890B3AD19F9F10700FC2E20 /* Images.xcassets */,
 				9890B3C619F9F44F00FC2E20 /* Images */,
 				9890B3A019F9F10600FC2E20 /* Supporting Files */,
@@ -187,8 +182,8 @@
 				9890B3E819FA124500FC2E20 /* MapViewController.m */,
 				9890B3E119FA124500FC2E20 /* CustomAnnotation.h */,
 				9890B3E219FA124500FC2E20 /* CustomAnnotation.m */,
-				9890B3E319FA124500FC2E20 /* CustomAnnotation1.h */,
-				9890B3E419FA124500FC2E20 /* CustomAnnotation1.m */,
+				9890B3E319FA124500FC2E20 /* CustomAnnotation_Hata.h */,
+				9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */,
 				9890B3E519FA124500FC2E20 /* CustomAnnotation2.h */,
 				9890B3E619FA124500FC2E20 /* CustomAnnotation2.m */,
 			);
@@ -328,10 +323,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9890B3EB19FA124500FC2E20 /* CustomAnnotation2.m in Sources */,
-				9890B3A919F9F10700FC2E20 /* ViewController.m in Sources */,
 				9890B3A619F9F10700FC2E20 /* AppDelegate.m in Sources */,
 				9890B3A319F9F10600FC2E20 /* main.m in Sources */,
-				9890B3EA19FA124500FC2E20 /* CustomAnnotation1.m in Sources */,
+				9890B3EA19FA124500FC2E20 /* CustomAnnotation_Hata.m in Sources */,
 				9890B3E919FA124500FC2E20 /* CustomAnnotation.m in Sources */,
 				9890B3EC19FA124500FC2E20 /* MapViewController.m in Sources */,
 			);
@@ -528,6 +522,7 @@
 				9890B3C219F9F10700FC2E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9890B3C319F9F10700FC2E20 /* Build configuration list for PBXNativeTarget "PhotoWakeTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +531,7 @@
 				9890B3C519F9F10700FC2E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

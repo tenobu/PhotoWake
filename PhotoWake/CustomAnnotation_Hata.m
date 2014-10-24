@@ -1,14 +1,14 @@
 //
-//  CustomAnnotation1.m
+//  CustomAnnotation_Hata.m
 //  MapEditor
 //
 //  Created by ビザンコムマック０９ on 2014/10/23.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
 //
 
-#import "CustomAnnotation1.h"
+#import "CustomAnnotation_Hata.h"
 
-@implementation CustomAnnotation1
+@implementation CustomAnnotation_Hata
 
 - (MKAnnotationView *)annotationView
 {
