@@ -1,25 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0IH-BY-Ebu">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Camera-->
+        <scene sceneID="KUa-4f-UJA">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="5vH-Q6-fKz" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="VpX-pW-QS9"/>
+                        <viewControllerLayoutGuide type="bottom" id="dRz-Hk-lyV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="beP-Fo-Fc6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Camera" image="Camera" id="LRW-oF-pMf"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xat-ap-bo6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="874" y="-595"/>
+        </scene>
+        <!--Tokushima-->
+        <scene sceneID="DaU-pO-XPJ">
+            <objects>
+                <viewController id="MXw-Qa-Bdu" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IGA-bb-KXA"/>
+                        <viewControllerLayoutGuide type="bottom" id="yPd-4g-zk7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xvh-ba-qd7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tokushima" image="Tokushima" id="N2e-DY-FTl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gry-b3-ZQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="-1257"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="g83-zj-0lq">
+            <objects>
+                <tabBarController id="0IH-BY-Ebu" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5OZ-bT-pyf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MXw-Qa-Bdu" kind="relationship" relationship="viewControllers" id="DsO-Re-yci"/>
+                        <segue destination="5vH-Q6-fKz" kind="relationship" relationship="viewControllers" id="BJQ-0e-frx"/>
+                        <segue destination="G9W-2b-ijA" kind="relationship" relationship="viewControllers" id="UOG-bx-QeQ"/>
+                        <segue destination="XtE-2b-i3I" kind="relationship" relationship="viewControllers" id="tGg-Ia-hfn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4S4-re-Roe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="754"/>
+        </scene>
+        <!--Slideshow-->
+        <scene sceneID="HPa-qN-Lcg">
+            <objects>
+                <viewController id="G9W-2b-ijA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bPR-4N-MBp"/>
+                        <viewControllerLayoutGuide type="bottom" id="EeV-BI-eXy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nhq-TR-ZLa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Slideshow" image="Slideshow" id="971-wE-KTF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9IY-MA-n9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="87"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="zzV-Qk-w0a">
+            <objects>
+                <tableViewController id="XtE-2b-i3I" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yqD-cy-aPf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7Fm-zF-w4S">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Fm-zF-w4S" id="Q0m-8s-Yya">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XtE-2b-i3I" id="uZ2-9p-4FK"/>
+                            <outlet property="delegate" destination="XtE-2b-i3I" id="JLs-z4-cgS"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Setting" image="Setting_40x40.png" id="nI5-Qf-jFu"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uI7-wc-ulW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="754"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Camera" width="40" height="40"/>
+        <image name="Setting_40x40.png" width="40" height="39"/>
+        <image name="Slideshow" width="40" height="40"/>
+        <image name="Tokushima" width="40" height="40"/>
+    </resources>
 </document>
