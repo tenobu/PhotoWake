@@ -31,6 +31,8 @@
 		9890B3F019FA1BA000FC2E20 /* hata.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3EF19FA1BA000FC2E20 /* hata.png */; };
 		9890B3FB19FA27EF00FC2E20 /* little25_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3FA19FA27EF00FC2E20 /* little25_2.png */; };
 		9890B3FE19FA29E600FC2E20 /* CustomAnnotation_GPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */; };
+		9890B40119FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B40019FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m */; };
+		9890B40319FA45A800FC2E20 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9890B40219FA45A800FC2E20 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		9890B3FA19FA27EF00FC2E20 /* little25_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = little25_2.png; sourceTree = "<group>"; };
 		9890B3FC19FA29E600FC2E20 /* CustomAnnotation_GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_GPS.h; sourceTree = "<group>"; };
 		9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_GPS.m; sourceTree = "<group>"; };
+		9890B3FF19FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_GPS_Old.h; sourceTree = "<group>"; };
+		9890B40019FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_GPS_Old.m; sourceTree = "<group>"; };
+		9890B40219FA45A800FC2E20 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9890B40319FA45A800FC2E20 /* CoreLocation.framework in Frameworks */,
 				9890B3EE19FA13E400FC2E20 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +108,7 @@
 		9890B39419F9F10600FC2E20 = {
 			isa = PBXGroup;
 			children = (
+				9890B40219FA45A800FC2E20 /* CoreLocation.framework */,
 				9890B3ED19FA13E400FC2E20 /* MapKit.framework */,
 				9890B39F19F9F10600FC2E20 /* PhotoWake */,
 				9890B3B919F9F10700FC2E20 /* PhotoWakeTests */,
@@ -194,6 +201,8 @@
 				9890B3E619FA124500FC2E20 /* CustomAnnotation_Photo.m */,
 				9890B3FC19FA29E600FC2E20 /* CustomAnnotation_GPS.h */,
 				9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */,
+				9890B3FF19FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.h */,
+				9890B40019FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m */,
 			);
 			name = Tokushima;
 			sourceTree = "<group>";
@@ -333,6 +342,7 @@
 			files = (
 				9890B3EB19FA124500FC2E20 /* CustomAnnotation_Photo.m in Sources */,
 				9890B3A619F9F10700FC2E20 /* AppDelegate.m in Sources */,
+				9890B40119FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m in Sources */,
 				9890B3A319F9F10600FC2E20 /* main.m in Sources */,
 				9890B3EA19FA124500FC2E20 /* CustomAnnotation_Hata.m in Sources */,
 				9890B3E919FA124500FC2E20 /* CustomAnnotation.m in Sources */,

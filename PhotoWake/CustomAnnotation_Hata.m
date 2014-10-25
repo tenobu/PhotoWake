@@ -14,7 +14,7 @@
 {
 	
 	MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation: self
-																	reuseIdentifier: @"CustomAnnotation1"];
+																	reuseIdentifier: @"CustomAnnotation_Hata"];
 	
 	annotationView.enabled = YES;
 	annotationView.canShowCallout = YES;

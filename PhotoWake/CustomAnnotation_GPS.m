@@ -10,4 +10,20 @@
 
 @implementation CustomAnnotation_GPS
 
+- (MKAnnotationView *)annotationView
+{
+	
+	MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation: self
+																	reuseIdentifier: @"CustomAnnotation_GPS"];
+	
+	annotationView.enabled = YES;
+	annotationView.canShowCallout = YES;
+	annotationView.image = [UIImage imageNamed: @"GPS.png"];
+	annotationView.frame = CGRectMake( 0, 0, 60, 60 );
+	annotationView.rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
+	
+	return annotationView;
+	
+}
+
 @end

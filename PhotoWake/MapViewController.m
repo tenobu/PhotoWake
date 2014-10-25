@@ -10,8 +10,29 @@
 
 #import "CustomAnnotation_Hata.h"
 #import "CustomAnnotation_Photo.h"
+#import "CustomAnnotation_GPS.h"
+#import "CustomAnnotation_GPS_Old.h"
 
 @interface MapViewController ()
+{
+
+@private
+	
+	CLLocationDegrees   latitude;
+	CLLocationDegrees   longitude;
+	CLLocationDirection heading;
+	
+	NSInteger integer_HaraCount;
+	NSInteger integer_PhotoCount;
+	NSInteger integer_GPSCount;
+	
+	NSMutableArray *array_Hata;
+	NSMutableArray *array_Photo;
+	NSMutableArray *array_GPS;
+
+	NSTimer *timer;
+	
+}
 
 @end
 
@@ -24,61 +45,53 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	
 	self.mapView.delegate = self;
-	
+
 	self.mapView.showsUserLocation = YES;
 	self.mapView.mapType = MKMapTypeHybrid;
+
+	
+	locationManager = [[CLLocationManager alloc] init];
+	
+	[locationManager requestAlwaysAuthorization];
+	
+	locationManager.delegate = self;
+	
+	locationManager.distanceFilter  = kCLDistanceFilterNone;
+	locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+	
+	if ( [CLLocationManager locationServicesEnabled] ) {
+
+		[locationManager startUpdatingLocation];
+		
+	}
+
+	if ( [CLLocationManager headingAvailable] ) {
+		
+		[locationManager startUpdatingHeading];
+		
+	}
+	
+	[self loadAnnotation_Hara];
+	[self loadAnnotation_Photo];
+	[self initAnnotation_GPS];
 	
 	MKCoordinateRegion region;
 	MKCoordinateSpan span;
 	span.latitudeDelta = 0.005;
 	span.longitudeDelta = 0.005;
 	
+	CLLocation *loc = [locationManager location];
+
 	CLLocationCoordinate2D location;
-	location.latitude = 34.07511029;
-	location.longitude = 134.556;//55709219;
+	location.latitude  = [loc coordinate].latitude;// 34.07511029;
+	location.longitude = [loc coordinate].longitude;// 134.556;//55709219;
 	
 	region.span   = span;
 	region.center = location;
 	
+
 	[self.mapView setRegion: region
 				   animated: YES];
-	
-	CustomAnnotation_Hata *tt1 = [[CustomAnnotation_Hata alloc] init];
-	
-	tt1.coordinate = CLLocationCoordinate2DMake( 34.074, 134.556 );
-	tt1.title       = @"Tokyo Tower";
-	tt1.subtitle    = @"opening in Dec 1958";
-	tt1.explanation = @"34.074, 134.556";
-	
-	// Tokyo Skytree
-	CustomAnnotation_Hata *st1 = [[CustomAnnotation_Hata alloc] init];
-	
-	st1.coordinate = CLLocationCoordinate2DMake( 34.076, 134.557 );
-	st1.title = @"Tokyo Skytree";
-	st1.subtitle = @"opening in May 2012";
-	st1.explanation = @"34.076, 134.557";
-	
-	// add annotations to map
-	[self.mapView addAnnotations: @[tt1, st1]];
-	
-	
-	CustomAnnotation_Photo *tt2 = [[CustomAnnotation_Photo alloc] init];
-	
-	tt2.coordinate = CLLocationCoordinate2DMake( 34.074, 134.554 );
-	tt2.title = @"Tokyo Tower";
-	tt2.subtitle = @"opening in Dec 1958";
-	tt2.explanation = @"34.074, 134.556";
-	
-	// Tokyo Skytree
-	CustomAnnotation_Photo *st2 = [[CustomAnnotation_Photo alloc] init];
-	
-	st2.coordinate = CLLocationCoordinate2DMake( 34.076, 134.552 );
-	st2.title = @"Tokyo Skytree";
-	st2.subtitle = @"opening in May 2012";
-	st2.explanation = @"34.076, 134.557";
-	
-	// add annotations to map
-	[self.mapView addAnnotations: @[tt2, st2]];
 	
 }
 
@@ -191,15 +204,15 @@ didDeselectAnnotationView: (MKAnnotationView *)view
 	
 }
 
--(MKAnnotationView *)mapView: (MKMapView*)mapView
-		   viewForAnnotation: (id)annotation
+- (MKAnnotationView *)mapView: (MKMapView*)mapView
+  		    viewForAnnotation: (id)annotation
 {
 	
 	if ( [annotation isKindOfClass: [CustomAnnotation_Hata class]] ) {
 	
 		CustomAnnotation_Hata *ca1 = (CustomAnnotation_Hata *)annotation;
 		
-		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier: @"CustomAnnotation1"];
+		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier: @"CustomAnnotation_Hata"];
 		
 		if ( annotationView == nil ) {
 			
@@ -231,27 +244,93 @@ didDeselectAnnotationView: (MKAnnotationView *)view
 		
 		return annotationView;
 		
+	} else if ( [annotation isKindOfClass: [CustomAnnotation_GPS class]] ) {
+		
+		CustomAnnotation_GPS *ca3 = (CustomAnnotation_GPS *)annotation;
+		
+		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier: @"CustomAnnotation_GPS"];
+		
+		if ( annotationView == nil ) {
+			
+			annotationView = ca3.annotationView;
+			
+		} else {
+			
+			annotationView.annotation = annotation;
+			
+		}
+		
+		return annotationView;
+		
+	} else if ( [annotation isKindOfClass: [CustomAnnotation_GPS_Old class]] ) {
+		
+		CustomAnnotation_GPS_Old *ca4 = (CustomAnnotation_GPS_Old *)annotation;
+		
+		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier: @"CustomAnnotation_GPS_Old"];
+		
+		if ( annotationView == nil ) {
+			
+			annotationView = ca4.annotationView;
+			
+		} else {
+			
+			annotationView.annotation = annotation;
+			
+		}
+		
+		return annotationView;
+		
 	} else {
 		
 		return nil;
 		
 	}
 	
-////	static NSString *PinIdentifier = @"Pin";
-////	
-////	MKAnnotationView *av = (MKAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier: PinIdentifier];
-////	
-////	if ( av == nil ) {
-////		
-////		av = [[MKAnnotationView alloc] initWithAnnotation: annotation
-////										  reuseIdentifier: PinIdentifier];
-////		
-////		av.image = [UIImage imageNamed: @"maps.png"];  // アノテーションの画像を指定する
-////		av.canShowCallout = YES;  // ピンタップ時にコールアウトを表示する
-////	
-////	}
-////	
-////	return av;
+}
+
+- (void)     locationManager: (CLLocationManager *)manager
+didChangeAuthorizationStatus: (CLAuthorizationStatus)status
+{
+	
+	if ( status == kCLAuthorizationStatusNotDetermined ) {
+		// ユーザが位置情報の使用を許可していない
+	}
+	
+}
+
+- (void)locationManager: (CLLocationManager *)manager
+	 didUpdateLocations: (NSArray *)locations
+{
+
+	CLLocation* location = [locations lastObject];
+	
+//	latitude  = location.coordinate.latitude;
+//	longitude = location.coordinate.longitude;
+	CLLocationDegrees lat = location.coordinate.latitude;
+	CLLocationDegrees lon = location.coordinate.longitude;
+
+	
+	if ( )
+	[self addAnnotation_GPS];
+	
+	[self gps_Action];
+	
+}
+
+- (void)locationManager: (CLLocationManager *)manager
+	   didFailWithError: (NSError *)error
+{
+
+	
+}
+
+- (void)locationManager: (CLLocationManager *)manager
+	   didUpdateHeading: (CLHeading *)newHeading
+{
+	
+	heading = newHeading.trueHeading;
+
+	[self gps_Action];
 	
 }
 
@@ -259,26 +338,102 @@ didDeselectAnnotationView: (MKAnnotationView *)view
 {
 	
 	MKCoordinateRegion region;
+	region.span   = MKCoordinateSpanMake      ( 0.005, 0.005 );
+	region.center = CLLocationCoordinate2DMake( 34.07511029, 134.556 );
+	
+	[self.mapView setRegion: region
+				   animated: YES];
+	
+}
+
+- (IBAction)button_Ima_Action:(id)sender
+{
+
+	MKCoordinateRegion region;
 	MKCoordinateSpan span;
 	span.latitudeDelta = 0.005;
 	span.longitudeDelta = 0.005;
 	
-	CLLocationCoordinate2D location;
-	location.latitude = 34.07511029;
-	location.longitude = 134.556;//55709219;
-	
-	region.span = span;
-	region.center = location;
-	
-	[self.mapView setRegion: region animated: YES];
+	region.span   = span;
+	region.center = CLLocationCoordinate2DMake( latitude, longitude );
+
+	[self.mapView setRegion: region
+				   animated: YES];
 	
 }
 
-- (IBAction)button_bb1_Action: (id)sender
+- (void)gps_Action
 {
 
-//	[[self presentingViewController] dismissModalViewControllerAnimated:YES];
-//	[self ]
+	NSLog( @"3 coord = (%f,%f)", latitude, longitude );
+	
+	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", latitude , longitude];
+	
+}
+
+- (void)loadAnnotation_Hara
+{
+	
+	array_Hata = [[NSMutableArray alloc] init];
+	
+	CustomAnnotation_Hata *ca = [[CustomAnnotation_Hata alloc] init];
+	
+	ca.coordinate = CLLocationCoordinate2DMake( 34.074, 134.556 );
+	ca.title       = @"Tokyo Tower";
+	ca.subtitle    = @"opening in Dec 1958";
+	ca.explanation = @"34.074, 134.556";
+	
+	[array_Hata addObject: ca];
+	
+	integer_HaraCount ++;
+	
+	[self.mapView addAnnotations: array_Hata];
+	
+}
+
+- (void)loadAnnotation_Photo
+{
+	
+	array_Photo = [[NSMutableArray alloc] init];
+	
+	CustomAnnotation_Photo *ca = [[CustomAnnotation_Photo alloc] init];
+	
+	ca.coordinate = CLLocationCoordinate2DMake( 34.076, 134.557 );
+	ca.title = @"Tokyo Skytree";
+	ca.subtitle = @"opening in May 2012";
+	ca.explanation = @"34.076, 134.557";
+	
+	[array_Photo addObject: ca];
+	
+	[self.mapView addAnnotations: array_Photo];
+	
+}
+
+- (void)initAnnotation_GPS
+{
+	
+	array_GPS = [[NSMutableArray alloc] init];
+
+	integer_GPSCount = 0;
+	
+}
+
+- (void)addAnnotation_GPS
+{
+
+	CustomAnnotation_GPS *ca = [[CustomAnnotation_GPS alloc] init];
+	
+	ca.coordinate = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );
+	ca.title = @"Tokyo Tower";
+	ca.subtitle = @"opening in Dec 1958";
+	ca.explanation = @"34.074, 134.556";
+	
+	[array_GPS addObject: ca];
+	
+	[self.mapView addAnnotations: array_GPS];
+
+	integer_GPSCount ++;
+	
 }
 
 @end
