@@ -18,19 +18,19 @@
 
 @private
 	
-	CLLocationDegrees   latitude;
-	CLLocationDegrees   longitude;
+	CLLocationDegrees   latitude , latitude_Old;
+	CLLocationDegrees   longitude, longitude_Old;
 	CLLocationDirection heading;
 	
 	NSInteger integer_HaraCount;
 	NSInteger integer_PhotoCount;
 	NSInteger integer_GPSCount;
+	NSInteger integer_GPSOldCount;
 	
 	NSMutableArray *array_Hata;
 	NSMutableArray *array_Photo;
 	NSMutableArray *array_GPS;
-
-	NSTimer *timer;
+	NSMutableArray *array_GPSOld;
 	
 }
 
@@ -43,6 +43,8 @@
 	
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	latitude_Old = longitude_Old = 9999;
 	
 	self.mapView.delegate = self;
 
@@ -74,6 +76,7 @@
 	[self loadAnnotation_Hara];
 	[self loadAnnotation_Photo];
 	[self initAnnotation_GPS];
+	[self initAnnotation_GPSOld];
 	
 	MKCoordinateRegion region;
 	MKCoordinateSpan span;
@@ -304,14 +307,42 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 
 	CLLocation* location = [locations lastObject];
 	
-//	latitude  = location.coordinate.latitude;
-//	longitude = location.coordinate.longitude;
 	CLLocationDegrees lat = location.coordinate.latitude;
 	CLLocationDegrees lon = location.coordinate.longitude;
 
-	
-	if ( )
-	[self addAnnotation_GPS];
+	if ( latitude_Old == 9999 && longitude_Old == 9999 ) {
+		
+		latitude  = latitude_Old  = lat;
+		longitude = longitude_Old = lon;
+		
+		[self addAnnotation_GPS];
+		
+	} else {
+		
+		CLLocationDegrees _lat = lat - latitude_Old;
+		CLLocationDegrees _lon = lon - longitude_Old;
+		
+		if ( _lat < 0 ) _lat *= -1;
+		if ( _lon < 0 ) _lon *= -1;
+		
+		if ( _lat > 0.00007 || _lon > 0.00007 ) {
+			
+			CustomAnnotation_GPS *gps = [self lastAnnotation_GPS];
+			
+			[self addAnnotation_GPSOld];
+			
+			CustomAnnotation_GPS_Old *gps_old = [self lastAnnotation_GPSOld];
+			
+			gps_old.coordinate = gps.coordinate;
+			
+			latitude  = latitude_Old  = lat;
+			longitude = longitude_Old = lon;
+
+			gps.coordinate = CLLocationCoordinate2DMake( latitude, longitude );
+			
+		}
+		
+	}
 	
 	[self gps_Action];
 	
@@ -365,9 +396,9 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 - (void)gps_Action
 {
 
-	NSLog( @"3 coord = (%f,%f)", latitude, longitude );
-	
-	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", latitude , longitude];
+//	NSLog( @"3 coord = (%f,%f)", latitude, longitude );
+//	
+//	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", latitude , longitude];
 	
 }
 
@@ -433,6 +464,49 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	[self.mapView addAnnotations: array_GPS];
 
 	integer_GPSCount ++;
+	
+}
+
+- (CustomAnnotation_GPS *)lastAnnotation_GPS
+{
+
+	return [array_GPS lastObject];
+	
+}
+
+- (void)initAnnotation_GPSOld
+{
+	
+	array_GPSOld = [[NSMutableArray alloc] init];
+	
+	integer_GPSOldCount = 0;
+	
+}
+
+- (void)addAnnotation_GPSOld
+{
+	
+	[self.mapView removeAnnotations: array_GPSOld];
+	
+	CustomAnnotation_GPS_Old *ca = [[CustomAnnotation_GPS_Old alloc] init];
+	
+	ca.coordinate = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );
+	ca.title = @"Tokyo Tower";
+	ca.subtitle = @"opening in Dec 1958";
+	ca.explanation = @"34.074, 134.556";
+	
+	[array_GPSOld addObject: ca];
+	
+	[self.mapView addAnnotations: array_GPSOld];
+	
+	integer_GPSOldCount ++;
+	
+}
+
+- (CustomAnnotation_GPS_Old *)lastAnnotation_GPSOld
+{
+	
+	return [array_GPSOld lastObject];
 	
 }
 
