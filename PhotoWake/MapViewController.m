@@ -114,10 +114,10 @@
 	CLLocationCoordinate2D coord = region.center;
 	MKCoordinateSpan span = region.span;
 	
-	NSLog( @"1 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
-	
-	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", coord.latitude    , coord.longitude];
-	self.label_2.text = [NSString stringWithFormat: @"span  = (%f,%f)", span.latitudeDelta, span.longitudeDelta];
+//	NSLog( @"1 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
+//	
+//	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", coord.latitude    , coord.longitude];
+//	self.label_2.text = [NSString stringWithFormat: @"span  = (%f,%f)", span.latitudeDelta, span.longitudeDelta];
 	
 }
 
@@ -135,10 +135,10 @@ didSelectAnnotationView: (MKAnnotationView *)view
 	CLLocationCoordinate2D coord = region.center;
 	MKCoordinateSpan span = region.span;
 	
-	NSLog( @"2 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
-	
-	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", coord.latitude    , coord.longitude];
-	self.label_2.text = [NSString stringWithFormat: @"span  = (%f,%f)", span.latitudeDelta, span.longitudeDelta];
+//	NSLog( @"2 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
+//	
+//	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", coord.latitude    , coord.longitude];
+//	self.label_2.text = [NSString stringWithFormat: @"span  = (%f,%f)", span.latitudeDelta, span.longitudeDelta];
 	
 }
 
@@ -159,10 +159,10 @@ didAddOverlayRenderers: (NSArray *)renderers
 	CLLocationCoordinate2D coord = region.center;
 	MKCoordinateSpan span = region.span;
 	
-	NSLog( @"3 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
-	
-	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", coord.latitude    , coord.longitude];
-	self.label_2.text = [NSString stringWithFormat: @"span  = (%f,%f)", span.latitudeDelta, span.longitudeDelta];
+//	NSLog( @"3 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
+//	
+//	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", coord.latitude    , coord.longitude];
+//	self.label_2.text = [NSString stringWithFormat: @"span  = (%f,%f)", span.latitudeDelta, span.longitudeDelta];
 	
 }
 
@@ -173,7 +173,8 @@ didAddAnnotationViews: (NSArray *)views
 	// add detail disclosure button to callout
 	[views enumerateObjectsUsingBlock: ^( id obj, NSUInteger idx, BOOL* stop ) {
 		
-		((MKAnnotationView*)obj).rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
+		//((MKAnnotationView*)obj).rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
+		NSLog( @"aaa" );
 		
 	}];
 	
@@ -185,17 +186,24 @@ calloutAccessoryControlTapped: (UIControl *)control
 {
 
 	// create right accessory view
-	UILabel* sample = [[UILabel alloc] initWithFrame: CGRectMake( 0.f, 0.f, 100.f, 32.f )];
-	
-	sample.backgroundColor = [UIColor clearColor];
-	sample.font = [UIFont fontWithName:@"Helvetica" size: 13];
-	sample.text = ((CustomAnnotation *)view.annotation).explanation;
-	sample.textColor = [UIColor whiteColor];
-	
-	// add view to callout
-	//view.rightCalloutAccessoryView = nil; // ??
-	view.rightCalloutAccessoryView = sample;
+//	UILabel* sample = [[UILabel alloc] initWithFrame: CGRectMake( 0.f, 0.f, 100.f, 32.f )];
+//	
+//	sample.backgroundColor = [UIColor clearColor];
+//	sample.font = [UIFont fontWithName:@"Helvetica" size: 13];
+//	sample.text = ((CustomAnnotation *)view.annotation).explanation;
+//	sample.textColor = [UIColor whiteColor];
+//	
+//	// add view to callout
+//	//view.rightCalloutAccessoryView = nil; // ??
+//	view.rightCalloutAccessoryView = sample;
 
+	CustomAnnotation *ca = [view annotation];
+	
+	if ( [view isKindOfClass: [CustomAnnotation_Hata class]] ) {
+	
+		
+	}
+	
 }
 
 - (void)          mapView: (MKMapView *)mapView
