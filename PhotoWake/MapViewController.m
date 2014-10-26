@@ -109,10 +109,10 @@
 - (void)mapViewWillStartLoadingMap: (MKMapView *)mapView
 {
 	
-	MKCoordinateRegion region = mapView.region;
-	
-	CLLocationCoordinate2D coord = region.center;
-	MKCoordinateSpan span = region.span;
+//	MKCoordinateRegion region = mapView.region;
+//	
+//	CLLocationCoordinate2D coord = region.center;
+//	MKCoordinateSpan span = region.span;
 	
 //	NSLog( @"1 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
 //	
@@ -130,10 +130,10 @@
 didSelectAnnotationView: (MKAnnotationView *)view
 {
 	
-	MKCoordinateRegion region = mapView.region;
-	
-	CLLocationCoordinate2D coord = region.center;
-	MKCoordinateSpan span = region.span;
+//	MKCoordinateRegion region = mapView.region;
+//	
+//	CLLocationCoordinate2D coord = region.center;
+//	MKCoordinateSpan span = region.span;
 	
 //	NSLog( @"2 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
 //	
@@ -154,10 +154,10 @@ didSelectAnnotationView: (MKAnnotationView *)view
 didAddOverlayRenderers: (NSArray *)renderers
 {
 	
-	MKCoordinateRegion region = mapView.region;
-	
-	CLLocationCoordinate2D coord = region.center;
-	MKCoordinateSpan span = region.span;
+//	MKCoordinateRegion region = mapView.region;
+//	
+//	CLLocationCoordinate2D coord = region.center;
+//	MKCoordinateSpan span = region.span;
 	
 //	NSLog( @"3 coord = (%f,%f) span = (%f,%f)", coord.latitude, coord.longitude, span.latitudeDelta, span.longitudeDelta );
 //	
