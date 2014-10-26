@@ -11,13 +11,20 @@
 #import <MapKit/MapKit.h>
 
 @interface CustomAnnotation : NSObject < MKAnnotation >
+{
+
+@protected
+
+	NSString *_no;
+	
+}
 
 @property (readwrite, nonatomic) CLLocationCoordinate2D coordinate; // required
 
-@property (readwrite, nonatomic) NSInteger no;
-@property (readwrite, nonatomic, strong) NSString* title; // optional
-@property (readwrite, nonatomic, strong) NSString* subtitle; // ditto
-@property (readwrite, nonatomic, strong) NSString* explanation; // for example
+@property (readwrite, nonatomic, strong) NSString *no;
+@property (readwrite, nonatomic, strong) NSString *title; // optional
+@property (readwrite, nonatomic, strong) NSString *subtitle; // ditto
+@property (readwrite, nonatomic, strong) NSString *explanation; // for example
 
 - (MKAnnotationView *)annotationView;
 

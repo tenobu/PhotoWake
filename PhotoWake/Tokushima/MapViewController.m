@@ -171,12 +171,11 @@ didAddAnnotationViews: (NSArray *)views
 {
 	
 	// add detail disclosure button to callout
-	[views enumerateObjectsUsingBlock: ^( id obj, NSUInteger idx, BOOL* stop ) {
-		
-		//((MKAnnotationView*)obj).rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
-		NSLog( @"aaa" );
-		
-	}];
+//	[views enumerateObjectsUsingBlock: ^( id obj, NSUInteger idx, BOOL* stop ) {
+//		
+//		//((MKAnnotationView*)obj).rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
+//		
+//	}];
 	
 }
 
@@ -185,22 +184,27 @@ didAddAnnotationViews: (NSArray *)views
 calloutAccessoryControlTapped: (UIControl *)control
 {
 
-	// create right accessory view
-//	UILabel* sample = [[UILabel alloc] initWithFrame: CGRectMake( 0.f, 0.f, 100.f, 32.f )];
-//	
-//	sample.backgroundColor = [UIColor clearColor];
-//	sample.font = [UIFont fontWithName:@"Helvetica" size: 13];
-//	sample.text = ((CustomAnnotation *)view.annotation).explanation;
-//	sample.textColor = [UIColor whiteColor];
-//	
-//	// add view to callout
-//	//view.rightCalloutAccessoryView = nil; // ??
-//	view.rightCalloutAccessoryView = sample;
-
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	
 	CustomAnnotation *ca = [view annotation];
 	
-	if ( [view isKindOfClass: [CustomAnnotation_Hata class]] ) {
-	
+	if ( [[ca class] isSubclassOfClass: [CustomAnnotation_Hata class]] ) {
+		
+		[ud setObject: ca.no forKey: @"Hata Data No"];
+		
+		[self performSegueWithIdentifier: @"segue hata"
+								  sender: self];
+		
+	} else if ( [[ca class] isSubclassOfClass: [CustomAnnotation_Photo class]] ) {
+		
+		[ud setObject: ca.no forKey: @"Photo Data No"];
+		
+		[self performSegueWithIdentifier: @"segue hata"
+								  sender: self];
+		
+	} else if ( [[ca class] isSubclassOfClass: [CustomAnnotation_GPS class]] ) {
+		
+	} else if ( [[ca class] isSubclassOfClass: [CustomAnnotation_GPS_Old class]] ) {
 		
 	}
 	
@@ -417,8 +421,9 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 	CustomAnnotation_Hata *ca = [[CustomAnnotation_Hata alloc] init];
 	
-	ca.coordinate = CLLocationCoordinate2DMake( 34.074, 134.556 );
-	ca.title       = @"Tokyo Tower";
+	ca.coordinate  = CLLocationCoordinate2DMake( 34.074, 134.556 );
+	ca.no          = @"1";
+	ca.title       = @"徳島城跡 １";
 	ca.subtitle    = @"opening in Dec 1958";
 	ca.explanation = @"34.074, 134.556";
 	
@@ -426,6 +431,20 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 	integer_HaraCount ++;
 	
+	
+	ca = [[CustomAnnotation_Hata alloc] init];
+	
+	ca.coordinate  = CLLocationCoordinate2DMake( 34.0743, 134.5558 );
+	ca.no          = @"2";
+	ca.title       = @"徳島城跡 ２";
+	ca.subtitle    = @"opening in Dec 1958";
+	ca.explanation = @"34.074, 134.556";
+	
+	[array_Hata addObject: ca];
+	
+	integer_HaraCount ++;
+	
+
 	[self.mapView addAnnotations: array_Hata];
 	
 }
@@ -437,9 +456,9 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 	CustomAnnotation_Photo *ca = [[CustomAnnotation_Photo alloc] init];
 	
-	ca.coordinate = CLLocationCoordinate2DMake( 34.076, 134.557 );
-	ca.title = @"Tokyo Skytree";
-	ca.subtitle = @"opening in May 2012";
+	ca.coordinate  = CLLocationCoordinate2DMake( 34.076, 134.557 );
+	ca.title       = @"Tokyo Skytree";
+	ca.subtitle    = @"opening in May 2012";
 	ca.explanation = @"34.076, 134.557";
 	
 	[array_Photo addObject: ca];
@@ -462,9 +481,9 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 
 	CustomAnnotation_GPS *ca = [[CustomAnnotation_GPS alloc] init];
 	
-	ca.coordinate = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );
-	ca.title = @"Tokyo Tower";
-	ca.subtitle = @"opening in Dec 1958";
+	ca.coordinate  = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );	ca.no          = 1;
+	ca.title       = @"Tokyo Tower";
+	ca.subtitle    = @"opening in Dec 1958";
 	ca.explanation = @"34.074, 134.556";
 	
 	[array_GPS addObject: ca];
@@ -498,9 +517,9 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 	CustomAnnotation_GPS_Old *ca = [[CustomAnnotation_GPS_Old alloc] init];
 	
-	ca.coordinate = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );
-	ca.title = @"Tokyo Tower";
-	ca.subtitle = @"opening in Dec 1958";
+	ca.coordinate  = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );
+	ca.title       = @"Tokyo Tower";
+	ca.subtitle    = @"opening in Dec 1958";
 	ca.explanation = @"34.074, 134.556";
 	
 	[array_GPSOld addObject: ca];

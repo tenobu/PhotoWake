@@ -23,16 +23,22 @@
 		9890B3DC19FA0E6600FC2E20 /* Tokushima_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3DB19FA0E6600FC2E20 /* Tokushima_40x40.png */; };
 		9890B3DE19FA106100FC2E20 /* Slideshow_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3DD19FA106100FC2E20 /* Slideshow_40x40.png */; };
 		9890B3E019FA111400FC2E20 /* Setting_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3DF19FA111400FC2E20 /* Setting_40x40.png */; };
-		9890B3E919FA124500FC2E20 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E219FA124500FC2E20 /* CustomAnnotation.m */; };
-		9890B3EA19FA124500FC2E20 /* CustomAnnotation_Hata.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */; };
-		9890B3EB19FA124500FC2E20 /* CustomAnnotation_Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E619FA124500FC2E20 /* CustomAnnotation_Photo.m */; };
-		9890B3EC19FA124500FC2E20 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3E819FA124500FC2E20 /* MapViewController.m */; };
 		9890B3EE19FA13E400FC2E20 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9890B3ED19FA13E400FC2E20 /* MapKit.framework */; };
 		9890B3F019FA1BA000FC2E20 /* hata.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3EF19FA1BA000FC2E20 /* hata.png */; };
 		9890B3FB19FA27EF00FC2E20 /* little25_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9890B3FA19FA27EF00FC2E20 /* little25_2.png */; };
-		9890B3FE19FA29E600FC2E20 /* CustomAnnotation_GPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */; };
-		9890B40119FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m in Sources */ = {isa = PBXBuildFile; fileRef = 9890B40019FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m */; };
 		9890B40319FA45A800FC2E20 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9890B40219FA45A800FC2E20 /* CoreLocation.framework */; };
+		98A07F0C19FD1A790045CECC /* CustomAnnotation_GPS_Old.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07EFF19FD1A790045CECC /* CustomAnnotation_GPS_Old.m */; };
+		98A07F0D19FD1A790045CECC /* CustomAnnotation_GPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0119FD1A790045CECC /* CustomAnnotation_GPS.m */; };
+		98A07F0E19FD1A790045CECC /* CustomAnnotation_Hata.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0319FD1A790045CECC /* CustomAnnotation_Hata.m */; };
+		98A07F0F19FD1A790045CECC /* CustomAnnotation_Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0519FD1A790045CECC /* CustomAnnotation_Photo.m */; };
+		98A07F1019FD1A790045CECC /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0719FD1A790045CECC /* CustomAnnotation.m */; };
+		98A07F1119FD1A790045CECC /* HataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0919FD1A790045CECC /* HataViewController.m */; };
+		98A07F1219FD1A790045CECC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0B19FD1A790045CECC /* MapViewController.m */; };
+		98A07F1D19FD1A940045CECC /* NTOptionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F1419FD1A940045CECC /* NTOptionDataSource.m */; };
+		98A07F1E19FD1A940045CECC /* NTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F1619FD1A940045CECC /* NTViewController.m */; };
+		98A07F1F19FD1A940045CECC /* PenColorDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F1819FD1A940045CECC /* PenColorDataSource.m */; };
+		98A07F2019FD1A940045CECC /* PenColorStyleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F1A19FD1A940045CECC /* PenColorStyleDataSource.m */; };
+		98A07F2119FD1A940045CECC /* PenStyleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F1C19FD1A940045CECC /* PenStyleDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,22 +73,34 @@
 		9890B3DB19FA0E6600FC2E20 /* Tokushima_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tokushima_40x40.png; sourceTree = "<group>"; };
 		9890B3DD19FA106100FC2E20 /* Slideshow_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slideshow_40x40.png; sourceTree = "<group>"; };
 		9890B3DF19FA111400FC2E20 /* Setting_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting_40x40.png; sourceTree = "<group>"; };
-		9890B3E119FA124500FC2E20 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
-		9890B3E219FA124500FC2E20 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
-		9890B3E319FA124500FC2E20 /* CustomAnnotation_Hata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_Hata.h; sourceTree = "<group>"; };
-		9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_Hata.m; sourceTree = "<group>"; };
-		9890B3E519FA124500FC2E20 /* CustomAnnotation_Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_Photo.h; sourceTree = "<group>"; };
-		9890B3E619FA124500FC2E20 /* CustomAnnotation_Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_Photo.m; sourceTree = "<group>"; };
-		9890B3E719FA124500FC2E20 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		9890B3E819FA124500FC2E20 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		9890B3ED19FA13E400FC2E20 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9890B3EF19FA1BA000FC2E20 /* hata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hata.png; sourceTree = "<group>"; };
 		9890B3FA19FA27EF00FC2E20 /* little25_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = little25_2.png; sourceTree = "<group>"; };
-		9890B3FC19FA29E600FC2E20 /* CustomAnnotation_GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_GPS.h; sourceTree = "<group>"; };
-		9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_GPS.m; sourceTree = "<group>"; };
-		9890B3FF19FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation_GPS_Old.h; sourceTree = "<group>"; };
-		9890B40019FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation_GPS_Old.m; sourceTree = "<group>"; };
 		9890B40219FA45A800FC2E20 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		98A07EFE19FD1A790045CECC /* CustomAnnotation_GPS_Old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation_GPS_Old.h; path = Tokushima/CustomAnnotation_GPS_Old.h; sourceTree = "<group>"; };
+		98A07EFF19FD1A790045CECC /* CustomAnnotation_GPS_Old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation_GPS_Old.m; path = Tokushima/CustomAnnotation_GPS_Old.m; sourceTree = "<group>"; };
+		98A07F0019FD1A790045CECC /* CustomAnnotation_GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation_GPS.h; path = Tokushima/CustomAnnotation_GPS.h; sourceTree = "<group>"; };
+		98A07F0119FD1A790045CECC /* CustomAnnotation_GPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation_GPS.m; path = Tokushima/CustomAnnotation_GPS.m; sourceTree = "<group>"; };
+		98A07F0219FD1A790045CECC /* CustomAnnotation_Hata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation_Hata.h; path = Tokushima/CustomAnnotation_Hata.h; sourceTree = "<group>"; };
+		98A07F0319FD1A790045CECC /* CustomAnnotation_Hata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation_Hata.m; path = Tokushima/CustomAnnotation_Hata.m; sourceTree = "<group>"; };
+		98A07F0419FD1A790045CECC /* CustomAnnotation_Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation_Photo.h; path = Tokushima/CustomAnnotation_Photo.h; sourceTree = "<group>"; };
+		98A07F0519FD1A790045CECC /* CustomAnnotation_Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation_Photo.m; path = Tokushima/CustomAnnotation_Photo.m; sourceTree = "<group>"; };
+		98A07F0619FD1A790045CECC /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation.h; path = Tokushima/CustomAnnotation.h; sourceTree = "<group>"; };
+		98A07F0719FD1A790045CECC /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation.m; path = Tokushima/CustomAnnotation.m; sourceTree = "<group>"; };
+		98A07F0819FD1A790045CECC /* HataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HataViewController.h; path = Tokushima/HataViewController.h; sourceTree = "<group>"; };
+		98A07F0919FD1A790045CECC /* HataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HataViewController.m; path = Tokushima/HataViewController.m; sourceTree = "<group>"; };
+		98A07F0A19FD1A790045CECC /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Tokushima/MapViewController.h; sourceTree = "<group>"; };
+		98A07F0B19FD1A790045CECC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Tokushima/MapViewController.m; sourceTree = "<group>"; };
+		98A07F1319FD1A940045CECC /* NTOptionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NTOptionDataSource.h; path = Camera/NTOptionDataSource.h; sourceTree = "<group>"; };
+		98A07F1419FD1A940045CECC /* NTOptionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NTOptionDataSource.m; path = Camera/NTOptionDataSource.m; sourceTree = "<group>"; };
+		98A07F1519FD1A940045CECC /* NTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NTViewController.h; path = Camera/NTViewController.h; sourceTree = "<group>"; };
+		98A07F1619FD1A940045CECC /* NTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NTViewController.m; path = Camera/NTViewController.m; sourceTree = "<group>"; };
+		98A07F1719FD1A940045CECC /* PenColorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PenColorDataSource.h; path = Camera/PenColorDataSource.h; sourceTree = "<group>"; };
+		98A07F1819FD1A940045CECC /* PenColorDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PenColorDataSource.m; path = Camera/PenColorDataSource.m; sourceTree = "<group>"; };
+		98A07F1919FD1A940045CECC /* PenColorStyleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PenColorStyleDataSource.h; path = Camera/PenColorStyleDataSource.h; sourceTree = "<group>"; };
+		98A07F1A19FD1A940045CECC /* PenColorStyleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PenColorStyleDataSource.m; path = Camera/PenColorStyleDataSource.m; sourceTree = "<group>"; };
+		98A07F1B19FD1A940045CECC /* PenStyleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PenStyleDataSource.h; path = Camera/PenStyleDataSource.h; sourceTree = "<group>"; };
+		98A07F1C19FD1A940045CECC /* PenStyleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PenStyleDataSource.m; path = Camera/PenStyleDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,18 +209,20 @@
 		9890B3F119FA1C8A00FC2E20 /* Tokushima */ = {
 			isa = PBXGroup;
 			children = (
-				9890B3E719FA124500FC2E20 /* MapViewController.h */,
-				9890B3E819FA124500FC2E20 /* MapViewController.m */,
-				9890B3E119FA124500FC2E20 /* CustomAnnotation.h */,
-				9890B3E219FA124500FC2E20 /* CustomAnnotation.m */,
-				9890B3E319FA124500FC2E20 /* CustomAnnotation_Hata.h */,
-				9890B3E419FA124500FC2E20 /* CustomAnnotation_Hata.m */,
-				9890B3E519FA124500FC2E20 /* CustomAnnotation_Photo.h */,
-				9890B3E619FA124500FC2E20 /* CustomAnnotation_Photo.m */,
-				9890B3FC19FA29E600FC2E20 /* CustomAnnotation_GPS.h */,
-				9890B3FD19FA29E600FC2E20 /* CustomAnnotation_GPS.m */,
-				9890B3FF19FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.h */,
-				9890B40019FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m */,
+				98A07EFE19FD1A790045CECC /* CustomAnnotation_GPS_Old.h */,
+				98A07EFF19FD1A790045CECC /* CustomAnnotation_GPS_Old.m */,
+				98A07F0019FD1A790045CECC /* CustomAnnotation_GPS.h */,
+				98A07F0119FD1A790045CECC /* CustomAnnotation_GPS.m */,
+				98A07F0219FD1A790045CECC /* CustomAnnotation_Hata.h */,
+				98A07F0319FD1A790045CECC /* CustomAnnotation_Hata.m */,
+				98A07F0419FD1A790045CECC /* CustomAnnotation_Photo.h */,
+				98A07F0519FD1A790045CECC /* CustomAnnotation_Photo.m */,
+				98A07F0619FD1A790045CECC /* CustomAnnotation.h */,
+				98A07F0719FD1A790045CECC /* CustomAnnotation.m */,
+				98A07F0819FD1A790045CECC /* HataViewController.h */,
+				98A07F0919FD1A790045CECC /* HataViewController.m */,
+				98A07F0A19FD1A790045CECC /* MapViewController.h */,
+				98A07F0B19FD1A790045CECC /* MapViewController.m */,
 			);
 			name = Tokushima;
 			sourceTree = "<group>";
@@ -210,6 +230,16 @@
 		9890B3F219FA1CA700FC2E20 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				98A07F1319FD1A940045CECC /* NTOptionDataSource.h */,
+				98A07F1419FD1A940045CECC /* NTOptionDataSource.m */,
+				98A07F1519FD1A940045CECC /* NTViewController.h */,
+				98A07F1619FD1A940045CECC /* NTViewController.m */,
+				98A07F1719FD1A940045CECC /* PenColorDataSource.h */,
+				98A07F1819FD1A940045CECC /* PenColorDataSource.m */,
+				98A07F1919FD1A940045CECC /* PenColorStyleDataSource.h */,
+				98A07F1A19FD1A940045CECC /* PenColorStyleDataSource.m */,
+				98A07F1B19FD1A940045CECC /* PenStyleDataSource.h */,
+				98A07F1C19FD1A940045CECC /* PenStyleDataSource.m */,
 			);
 			name = Camera;
 			sourceTree = "<group>";
@@ -340,14 +370,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9890B3EB19FA124500FC2E20 /* CustomAnnotation_Photo.m in Sources */,
+				98A07F1F19FD1A940045CECC /* PenColorDataSource.m in Sources */,
+				98A07F0E19FD1A790045CECC /* CustomAnnotation_Hata.m in Sources */,
+				98A07F2019FD1A940045CECC /* PenColorStyleDataSource.m in Sources */,
+				98A07F0D19FD1A790045CECC /* CustomAnnotation_GPS.m in Sources */,
 				9890B3A619F9F10700FC2E20 /* AppDelegate.m in Sources */,
-				9890B40119FA2B3900FC2E20 /* CustomAnnotation_GPS_Old.m in Sources */,
+				98A07F1E19FD1A940045CECC /* NTViewController.m in Sources */,
+				98A07F2119FD1A940045CECC /* PenStyleDataSource.m in Sources */,
+				98A07F1219FD1A790045CECC /* MapViewController.m in Sources */,
+				98A07F0C19FD1A790045CECC /* CustomAnnotation_GPS_Old.m in Sources */,
+				98A07F1D19FD1A940045CECC /* NTOptionDataSource.m in Sources */,
+				98A07F1119FD1A790045CECC /* HataViewController.m in Sources */,
+				98A07F0F19FD1A790045CECC /* CustomAnnotation_Photo.m in Sources */,
+				98A07F1019FD1A790045CECC /* CustomAnnotation.m in Sources */,
 				9890B3A319F9F10600FC2E20 /* main.m in Sources */,
-				9890B3EA19FA124500FC2E20 /* CustomAnnotation_Hata.m in Sources */,
-				9890B3E919FA124500FC2E20 /* CustomAnnotation.m in Sources */,
-				9890B3FE19FA29E600FC2E20 /* CustomAnnotation_GPS.m in Sources */,
-				9890B3EC19FA124500FC2E20 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

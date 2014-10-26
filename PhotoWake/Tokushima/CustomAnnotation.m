@@ -25,4 +25,17 @@
 	
 }
 
+- (void)setNo: (NSString *)no
+{
+
+	_no = no;
+	
+}
+
+- (NSString *)no
+{
+	
+	return _no;
+	
+}
 @end

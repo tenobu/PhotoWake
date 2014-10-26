@@ -60,19 +60,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgJ-vc-uks">
-                                <rect key="frame" x="131" y="28" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="131" y="28" width="60" height="30"/>
+                                <state key="normal" title="ユーザー">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="button_Ima_Action:" destination="MXw-Qa-Bdu" eventType="touchUpInside" id="xuJ-yM-PRh"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzo-ds-l1w">
+                                <rect key="frame" x="523" y="28" width="60" height="30"/>
+                                <state key="normal" title="旗の詳細">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZC9-Bd-dcr" kind="modal" identifier="segue hata" id="Ucl-hd-c0M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="X75-Bz-72j" secondAttribute="bottom" id="6fo-hA-b2h"/>
+                            <constraint firstItem="Jzo-ds-l1w" firstAttribute="top" secondItem="IGA-bb-KXA" secondAttribute="bottom" constant="8" id="CYh-L5-Jkw"/>
                             <constraint firstItem="X75-Bz-72j" firstAttribute="leading" secondItem="Xvh-ba-qd7" secondAttribute="leading" id="hJa-K2-fWz"/>
+                            <constraint firstAttribute="trailing" secondItem="Jzo-ds-l1w" secondAttribute="trailing" constant="17" id="sg5-gf-Ck5"/>
                             <constraint firstItem="X75-Bz-72j" firstAttribute="top" secondItem="Xvh-ba-qd7" secondAttribute="top" id="tiO-ML-XsF"/>
                             <constraint firstAttribute="trailing" secondItem="X75-Bz-72j" secondAttribute="trailing" id="wyu-0I-qt4"/>
                         </constraints>
@@ -89,6 +100,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gry-b3-ZQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="874" y="-1284"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="Rxu-n4-kAh">
+            <objects>
+                <tableViewController id="BFE-fp-b4q" customClass="HataViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BzY-Gc-juh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sGa-DV-9Ke">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sGa-DV-9Ke" id="5F4-vn-YKx">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BFE-fp-b4q" id="Clr-jn-fBr"/>
+                            <outlet property="delegate" destination="BFE-fp-b4q" id="JjY-9o-ZuX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="47r-t4-ak6">
+                        <barButtonItem key="leftBarButtonItem" title="もどる" id="M27-6p-MOd">
+                            <connections>
+                                <segue destination="0IH-BY-Ebu" kind="showDetail" id="Aay-xS-vNC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ttu-3d-khJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2393" y="-1284"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eir-na-aqk">
+            <objects>
+                <navigationController id="ZC9-Bd-dcr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fae-Ku-nM1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BFE-fp-b4q" kind="relationship" relationship="rootViewController" id="Le5-fz-JHD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdw-gt-mbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="-1284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g83-zj-0lq">
