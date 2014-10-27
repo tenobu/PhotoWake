@@ -20,7 +20,7 @@
 	annotationView.canShowCallout = YES;
 	annotationView.image = [UIImage imageNamed: @"GPS.png"];
 	annotationView.frame = CGRectMake( 0, 0, 60, 60 );
-	annotationView.rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
+	annotationView.rightCalloutAccessoryView = nil;// [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
 	
 	return annotationView;
 	

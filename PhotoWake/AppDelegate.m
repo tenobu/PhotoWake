@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 
+#import "CustomAnnotation_Hata.h"
+#import "CustomAnnotation_Photo.h"
+#import "CustomAnnotation_GPS.h"
+#import "CustomAnnotation_GPS_Old.h"
+
 @interface AppDelegate ()
 
 @end
@@ -15,9 +20,18 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+
 	// Override point for customization after application launch.
+
+	[self loadAnnotation_Hara];
+	[self loadAnnotation_Photo];
+	[self initAnnotation_GPS];
+	[self initAnnotation_GPSOld];
+	
 	return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -40,6 +54,57 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)loadAnnotation_Hara
+{
+	
+	self.array_Hata = [[NSMutableArray alloc] init];
+	
+	CustomAnnotation_Hata *ca = [[CustomAnnotation_Hata alloc] init];
+	
+	ca.coordinate  = CLLocationCoordinate2DMake( 34.074, 134.556 );
+	ca.no          = @"1";
+	ca.title       = @"徳島城跡 １";
+	ca.subtitle    = @"opening in Dec 1958";
+	ca.explanation = @"34.074, 134.556";
+	
+	[self.array_Hata addObject: ca];
+	
+	
+	ca = [[CustomAnnotation_Hata alloc] init];
+	
+	ca.coordinate  = CLLocationCoordinate2DMake( 34.0743, 134.5558 );
+	ca.no          = @"2";
+	ca.title       = @"徳島城跡 ２";
+	ca.subtitle    = @"opening in Dec 1958";
+	ca.explanation = @"34.074, 134.556";
+	
+	[self.array_Hata addObject: ca];
+	
+}
+
+- (void)loadAnnotation_Photo
+{
+	
+	self.array_Photo     = [[NSMutableArray alloc] init];
+	self.array_Photo_Add = [[NSMutableArray alloc] init];
+	
+}
+
+- (void)initAnnotation_GPS
+{
+	
+	self.array_GPS = [[NSMutableArray alloc] init];
+	
+}
+
+- (void)initAnnotation_GPSOld
+{
+	
+	self.array_GPSOld     = [[NSMutableArray alloc] init];
+	self.array_GPSOld_Add = [[NSMutableArray alloc] init];
+	
 }
 
 @end

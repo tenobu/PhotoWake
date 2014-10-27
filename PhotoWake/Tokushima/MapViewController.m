@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 
+#import "AppDelegate.h"
 #import "CustomAnnotation_Hata.h"
 #import "CustomAnnotation_Photo.h"
 #import "CustomAnnotation_GPS.h"
@@ -18,19 +19,7 @@
 
 @private
 	
-	CLLocationDegrees   latitude , latitude_Old;
-	CLLocationDegrees   longitude, longitude_Old;
-	CLLocationDirection heading;
-	
-	NSInteger integer_HaraCount;
-	NSInteger integer_PhotoCount;
-	NSInteger integer_GPSCount;
-	NSInteger integer_GPSOldCount;
-	
-	NSMutableArray *array_Hata;
-	NSMutableArray *array_Photo;
-	NSMutableArray *array_GPS;
-	NSMutableArray *array_GPSOld;
+	AppDelegate *app;
 	
 }
 
@@ -42,15 +31,79 @@
 {
 	
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+	app = [[UIApplication sharedApplication] delegate];
 	
-	latitude_Old = longitude_Old = 9999;
+	[self initMapView];
+
+	[self initLocationManager];
+	
+	MKCoordinateRegion region;
+	MKCoordinateSpan span;
+	span.latitudeDelta = 0.005;
+	span.longitudeDelta = 0.005;
+	
+	CLLocation *loc = [locationManager location];
+	
+	CLLocationCoordinate2D location;
+	location.latitude  = [loc coordinate].latitude;// 34.07511029;
+	location.longitude = [loc coordinate].longitude;// 134.556;//55709219;
+	
+	region.span   = span;
+	region.center = location;
+	
+	[self addAnnotation_Hata];
+	[self addAnnotation_Photo];
+
+	[self.mapView setRegion: region
+				   animated: YES];
+	
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	
+	[self addAnnotation_Photo_Add];
+	
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	
+}
+
+- (void)didReceiveMemoryWarning
+{
+	
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
+	
+}
+
+- (void)initMapView
+{
 	
 	self.mapView.delegate = self;
-
+	
 	self.mapView.showsUserLocation = YES;
 	self.mapView.mapType = MKMapTypeHybrid;
+	
+}
 
+- (void)initLocationManager
+{
+	
+	latitude_Old = longitude_Old = 9999;
 	
 	locationManager = [[CLLocationManager alloc] init];
 	
@@ -62,47 +115,16 @@
 	locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	
 	if ( [CLLocationManager locationServicesEnabled] ) {
-
+		
 		[locationManager startUpdatingLocation];
 		
 	}
-
+	
 	if ( [CLLocationManager headingAvailable] ) {
 		
 		[locationManager startUpdatingHeading];
 		
 	}
-	
-	[self loadAnnotation_Hara];
-	[self loadAnnotation_Photo];
-	[self initAnnotation_GPS];
-	[self initAnnotation_GPSOld];
-	
-	MKCoordinateRegion region;
-	MKCoordinateSpan span;
-	span.latitudeDelta = 0.005;
-	span.longitudeDelta = 0.005;
-	
-	CLLocation *loc = [locationManager location];
-
-	CLLocationCoordinate2D location;
-	location.latitude  = [loc coordinate].latitude;// 34.07511029;
-	location.longitude = [loc coordinate].longitude;// 134.556;//55709219;
-	
-	region.span   = span;
-	region.center = location;
-	
-
-	[self.mapView setRegion: region
-				   animated: YES];
-	
-}
-
-- (void)didReceiveMemoryWarning
-{
-	
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
 	
 }
 
@@ -337,7 +359,8 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 		if ( _lat < 0 ) _lat *= -1;
 		if ( _lon < 0 ) _lon *= -1;
 		
-		if ( _lat > 0.00007 || _lon > 0.00007 ) {
+		// 0.00007, 0.0001
+		if ( _lat > 0.0001 || _lon > 0.0001 ) {
 			
 			CustomAnnotation_GPS *gps = [self lastAnnotation_GPS];
 			
@@ -414,126 +437,84 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 }
 
-- (void)loadAnnotation_Hara
+- (void)addAnnotation_Hata
+{
+
+	[self.mapView addAnnotations: app.array_Hata];
+
+}
+
+- (void)addAnnotation_Photo
 {
 	
-	array_Hata = [[NSMutableArray alloc] init];
-	
-	CustomAnnotation_Hata *ca = [[CustomAnnotation_Hata alloc] init];
-	
-	ca.coordinate  = CLLocationCoordinate2DMake( 34.074, 134.556 );
-	ca.no          = @"1";
-	ca.title       = @"徳島城跡 １";
-	ca.subtitle    = @"opening in Dec 1958";
-	ca.explanation = @"34.074, 134.556";
-	
-	[array_Hata addObject: ca];
-	
-	integer_HaraCount ++;
-	
-	
-	ca = [[CustomAnnotation_Hata alloc] init];
-	
-	ca.coordinate  = CLLocationCoordinate2DMake( 34.0743, 134.5558 );
-	ca.no          = @"2";
-	ca.title       = @"徳島城跡 ２";
-	ca.subtitle    = @"opening in Dec 1958";
-	ca.explanation = @"34.074, 134.556";
-	
-	[array_Hata addObject: ca];
-	
-	integer_HaraCount ++;
-	
-
-	[self.mapView addAnnotations: array_Hata];
+	[self.mapView addAnnotations: app.array_Photo];
 	
 }
 
-- (void)loadAnnotation_Photo
+- (void)addAnnotation_Photo_Add
 {
 	
-	array_Photo = [[NSMutableArray alloc] init];
+	[self.mapView addAnnotations: app.array_Photo_Add];
 	
-	CustomAnnotation_Photo *ca = [[CustomAnnotation_Photo alloc] init];
-	
-	ca.coordinate  = CLLocationCoordinate2DMake( 34.076, 134.557 );
-	ca.title       = @"Tokyo Skytree";
-	ca.subtitle    = @"opening in May 2012";
-	ca.explanation = @"34.076, 134.557";
-	
-	[array_Photo addObject: ca];
-	
-	[self.mapView addAnnotations: array_Photo];
-	
-}
-
-- (void)initAnnotation_GPS
-{
-	
-	array_GPS = [[NSMutableArray alloc] init];
-
-	integer_GPSCount = 0;
+	[app.array_Photo_Add removeAllObjects];
 	
 }
 
 - (void)addAnnotation_GPS
 {
-
+	
 	CustomAnnotation_GPS *ca = [[CustomAnnotation_GPS alloc] init];
 	
-	ca.coordinate  = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );	ca.no          = 1;
-	ca.title       = @"Tokyo Tower";
-	ca.subtitle    = @"opening in Dec 1958";
-	ca.explanation = @"34.074, 134.556";
-	
-	[array_GPS addObject: ca];
-	
-	[self.mapView addAnnotations: array_GPS];
 
-	integer_GPSCount ++;
+	ca.coordinate  = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );	ca.no          = 1;
+	ca.title       = @"自分の現在位置";
+	ca.subtitle    = [NSString stringWithFormat: @"%f, %f", latitude, longitude];
+	ca.explanation = @"";
+	
+	[app.array_GPS addObject: ca];
+	
+	[self.mapView addAnnotations: app.array_GPS];
 	
 }
 
 - (CustomAnnotation_GPS *)lastAnnotation_GPS
 {
-
-	return [array_GPS lastObject];
 	
-}
-
-- (void)initAnnotation_GPSOld
-{
-	
-	array_GPSOld = [[NSMutableArray alloc] init];
-	
-	integer_GPSOldCount = 0;
+	return [app.array_GPS lastObject];
 	
 }
 
 - (void)addAnnotation_GPSOld
 {
 	
-	[self.mapView removeAnnotations: array_GPSOld];
+	[self.mapView removeAnnotations: app.array_GPSOld];
 	
 	CustomAnnotation_GPS_Old *ca = [[CustomAnnotation_GPS_Old alloc] init];
 	
 	ca.coordinate  = CLLocationCoordinate2DMake( latitude, longitude );// 34.074, 134.554 );
-	ca.title       = @"Tokyo Tower";
-	ca.subtitle    = @"opening in Dec 1958";
-	ca.explanation = @"34.074, 134.556";
+	ca.title       = @"自分の過去の位置";
+	ca.subtitle    = [NSString stringWithFormat: @"%f, %f", latitude, longitude];
+	ca.explanation = @"";
 	
-	[array_GPSOld addObject: ca];
+	[app.array_GPSOld addObject: ca];
 	
-	[self.mapView addAnnotations: array_GPSOld];
+	[self.mapView addAnnotations: app.array_GPSOld];
 	
-	integer_GPSOldCount ++;
+}
+
+- (void)addAnnotation_GPSOld_Add
+{
+	
+	[self.mapView addAnnotations: app.array_GPSOld_Add];
+	
+	[app.array_Photo_Add removeAllObjects];
 	
 }
 
 - (CustomAnnotation_GPS_Old *)lastAnnotation_GPSOld
 {
 	
-	return [array_GPSOld lastObject];
+	return [app.array_GPSOld lastObject];
 	
 }
 

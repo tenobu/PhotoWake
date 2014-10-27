@@ -17,10 +17,10 @@
 																	reuseIdentifier: @"CustomAnnotation_GPS_Old"];
 	
 	annotationView.enabled = YES;
-	annotationView.canShowCallout = YES;
+	annotationView.canShowCallout = NO;
 	annotationView.image = [UIImage imageNamed: @"GPS_Old.png"];
 	annotationView.frame = CGRectMake( 0, 0, 10, 10 );
-	annotationView.rightCalloutAccessoryView = [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
+	annotationView.rightCalloutAccessoryView = nil;// [UIButton buttonWithType: UIButtonTypeDetailDisclosure];
 	
 	return annotationView;
 	

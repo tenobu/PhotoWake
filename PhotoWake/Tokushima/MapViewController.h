@@ -13,18 +13,22 @@
 
 @interface MapViewController : UIViewController < MKMapViewDelegate, CLLocationManagerDelegate >
 {
+
+@private
 	
 	CLLocationManager *locationManager;
 	
-	CLLocationCoordinate2D coordinate; // 現在の緯度経度
+	CLLocationCoordinate2D coordinate;
 	
+	CLLocationDegrees   latitude , latitude_Old;
+	CLLocationDegrees   longitude, longitude_Old;
+	CLLocationDirection heading;
+
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-//@property (weak, nonatomic) CLLocationManager *locationManager;
 
 @property (weak, nonatomic) IBOutlet UIButton *button_TokusimaJyou;
-@property (weak, nonatomic) IBOutlet UIButton *button_bb1;
 @property (weak, nonatomic) IBOutlet UIButton *button_Ima;
 
 @property (weak, nonatomic) IBOutlet UILabel *label_1;
