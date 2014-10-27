@@ -21,6 +21,10 @@
 	
 	AppDelegate *app;
 	
+//	UIImagePickerController *imagePickerController;
+
+	UIImageView *pictureImage;
+	
 	CLLocationManager *locationManager;
 	
 	CLLocationCoordinate2D coordinate;
@@ -42,6 +46,23 @@
 	
 	app = [[UIApplication sharedApplication] delegate];
 
+	//self.navigationController.delegate = self;
+	
+//	if ( [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera] ) {
+//		
+//		UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+//		
+//		[imagePickerController setSourceType:    UIImagePickerControllerSourceTypeCamera];
+//		[imagePickerController setAllowsEditing: YES];
+//		[imagePickerController setDelegate:      self];
+//		
+//		// アニメーションをしてカメラUIを起動
+//		[self presentViewController: imagePickerController
+//						   animated: YES
+//						 completion: nil];
+//
+//	}
+	
 	[self initLocationManager];
 
 }
@@ -92,6 +113,81 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)libraryButtonTouched: (id)sender
+{
+	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+		[imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+		[imagePickerController setAllowsEditing:YES];
+		[imagePickerController setDelegate:self];
+		
+		[self presentViewController:imagePickerController animated:YES completion:nil];
+		// iPadの場合はUIPopoverControllerを使う
+//		popover = [[UIPopoverController alloc]initWithContentViewController:imagePickerController];
+//		[popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	}
+	else
+	{
+		NSLog(@"photo library invalid.");
+	}
+	
+}
+
+//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//{
+//	// オリジナル画像
+//	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+//	// 編集画像
+//	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
+//	UIImage *saveImage;
+//	
+//	if(editedImage)
+//	{
+//		saveImage = editedImage;
+//	}
+//	else
+//	{
+//		saveImage = originalImage;
+//	}
+//	
+//	// UIImageViewに画像を設定
+//	pictureImage.image = saveImage;
+//	
+//	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+//	{
+//		// カメラから呼ばれた場合は画像をフォトライブラリに保存してViewControllerを閉じる
+//		UIImageWriteToSavedPhotosAlbum(saveImage, nil, nil, nil);
+//		[self dismissViewControllerAnimated:YES completion:nil];
+//	}
+//	else
+//	{
+//		// フォトライブラリから呼ばれた場合はPopOverを閉じる（iPad）
+//////		[popover dismissPopoverAnimated:YES];
+//////		[popover release];
+//////		popover = nil;
+//	}
+//}
+//
+////-(void)targetImage:(UIImage*)image
+////didFinishSavingWithError:(NSError*)error contextInfo:(void*)context{
+////	
+////	if(error){
+////		// 保存失敗時
+////	}else{
+////		// 保存成功時
+////	}
+////}
+//
+//- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+//{
+//	
+//	 [[picker presentingViewController] dismissViewControllerAnimated: YES
+//														   completion: nil];
+//
+//	// 何かの処理
+//}
 
 - (void)     locationManager: (CLLocationManager *)manager
 didChangeAuthorizationStatus: (CLAuthorizationStatus)status
