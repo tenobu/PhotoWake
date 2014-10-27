@@ -10,7 +10,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface CameraViewController : UIImagePickerController < UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate >
+@interface CameraViewController : UIViewController < UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate >
 
 @property (weak, nonatomic) IBOutlet UILabel *label_1;
 @property (weak, nonatomic) IBOutlet UIButton *button_Camera;

@@ -135,6 +135,43 @@
 	
 }
 
+
+- (IBAction)cameraButtonPressed:(id)sender {
+	UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+		pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+		pickerController.mediaTypes = @[(NSString *)kUTTypeImage];
+		pickerController.delegate = self;
+		[self presentViewController:pickerController animated:YES completion:NULL];
+	} else {
+		// camera not available, do something
+	}
+}
+
+- (IBAction)galleryButtonPressed:(id)sender {
+	UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+		pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+		pickerController.allowsEditing = YES;
+		pickerController.delegate = self;
+		[self presentViewController:pickerController animated:YES completion:NULL];
+	}
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	[self dismissViewControllerAnimated:YES completion:NULL];
+	
+	UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+	if (image == nil)
+		image = [info objectForKey:UIImagePickerControllerOriginalImage];
+	
+	// Do something with the image
+	[self.imageView setImage:image];
+}
+
 //-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 //{
 //	// オリジナル画像
