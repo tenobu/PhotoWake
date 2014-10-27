@@ -12,7 +12,11 @@
 
 @interface CameraViewController : UIViewController < UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate >
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @property (weak, nonatomic) IBOutlet UILabel *label_1;
-@property (weak, nonatomic) IBOutlet UIButton *button_Camera;
+
+- (IBAction)cameraButtonPressed:(id)sender;
+- (IBAction)galleryButtonPressed:(id)sender;
 
 @end

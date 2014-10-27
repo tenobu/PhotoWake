@@ -20,6 +20,8 @@
 @private
 	
 	AppDelegate *app;
+
+	NSTimer *timer_Hata;
 	
 }
 
@@ -57,6 +59,12 @@
 
 	[self.mapView setRegion: region
 				   animated: YES];
+
+	timer_Hata = [NSTimer scheduledTimerWithTimeInterval: 0.1
+												  target: self
+												selector: @selector( timer_Action: )
+												userInfo: nil
+												 repeats: YES];
 	
 }
 
@@ -379,8 +387,6 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 		
 	}
 	
-	[self gps_Action];
-	
 }
 
 - (void)locationManager: (CLLocationManager *)manager
@@ -396,8 +402,6 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 	heading = newHeading.trueHeading;
 
-	[self gps_Action];
-	
 }
 
 - (IBAction)button_TokusimaJyou_Action: (id)sender
@@ -428,12 +432,16 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 }
 
-- (void)gps_Action
+- (void)timer_Action: (NSTimer *)timer
 {
 
-//	NSLog( @"3 coord = (%f,%f)", latitude, longitude );
-//	
-//	self.label_1.text = [NSString stringWithFormat: @"coord = (%f,%f)", latitude , longitude];
+	if ( [app.array_Hata count] > 0 ) {
+		
+		[timer invalidate];
+		
+		[self addAnnotation_Hata];
+		
+	}
 	
 }
 

@@ -9,6 +9,8 @@
 #import "CameraViewController.h"
 
 #import "AppDelegate.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "CustomAnnotation_Hata.h"
 #import "CustomAnnotation_Photo.h"
 #import "CustomAnnotation_GPS.h"
@@ -21,8 +23,6 @@
 	
 	AppDelegate *app;
 	
-//	UIImagePickerController *imagePickerController;
-
 	UIImageView *pictureImage;
 	
 	CLLocationManager *locationManager;
@@ -45,26 +45,11 @@
 	[super viewDidLoad];
 	
 	app = [[UIApplication sharedApplication] delegate];
-
-	//self.navigationController.delegate = self;
-	
-//	if ( [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera] ) {
-//		
-//		UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-//		
-//		[imagePickerController setSourceType:    UIImagePickerControllerSourceTypeCamera];
-//		[imagePickerController setAllowsEditing: YES];
-//		[imagePickerController setDelegate:      self];
-//		
-//		// アニメーションをしてカメラUIを起動
-//		[self presentViewController: imagePickerController
-//						   animated: YES
-//						 completion: nil];
-//
-//	}
 	
 	[self initLocationManager];
 
+	[self cameraButtonPressed: nil];
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,115 +101,132 @@
 
 - (IBAction)libraryButtonTouched: (id)sender
 {
-	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-	{
-		UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
-		[imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-		[imagePickerController setAllowsEditing:YES];
-		[imagePickerController setDelegate:self];
+
+	if ( [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypePhotoLibrary] ) {
 		
-		[self presentViewController:imagePickerController animated:YES completion:nil];
+		UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+
+		[imagePickerController setSourceType   : UIImagePickerControllerSourceTypePhotoLibrary];
+		[imagePickerController setAllowsEditing: YES];
+		
+		imagePickerController.delegate = self;
+		
+		[self presentViewController: imagePickerController
+						   animated: YES
+						 completion: nil];
+		
 		// iPadの場合はUIPopoverControllerを使う
 //		popover = [[UIPopoverController alloc]initWithContentViewController:imagePickerController];
 //		[popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-	}
-	else
-	{
-		NSLog(@"photo library invalid.");
-	}
-	
-}
-
-
-- (IBAction)cameraButtonPressed:(id)sender {
-	UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-		pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-		pickerController.mediaTypes = @[(NSString *)kUTTypeImage];
-		pickerController.delegate = self;
-		[self presentViewController:pickerController animated:YES completion:NULL];
 	} else {
-		// camera not available, do something
-	}
-}
-
-- (IBAction)galleryButtonPressed:(id)sender {
-	UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-		pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-		pickerController.allowsEditing = YES;
-		pickerController.delegate = self;
-		[self presentViewController:pickerController animated:YES completion:NULL];
-	}
-}
-
-#pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker
-didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-	[self dismissViewControllerAnimated:YES completion:NULL];
+		
+		NSLog( @"photo library invalid." );
 	
-	UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-	if (image == nil)
-		image = [info objectForKey:UIImagePickerControllerOriginalImage];
+	}
+	
+}
+
+- (IBAction)cameraButtonPressed: (id)sender
+{
+	
+	UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+	
+	if ( [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera] ) {
+		
+		imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+		imagePickerController.mediaTypes = @[ (NSString *)kUTTypeImage ];
+		imagePickerController.delegate = self;
+		
+		[self presentViewController: imagePickerController
+						   animated: YES
+						 completion: NULL];
+	
+	} else {
+	
+		// camera not available, do something
+	
+	}
+
+}
+
+- (IBAction)galleryButtonPressed: (id)sender
+{
+
+	UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+	
+	if ( [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypePhotoLibrary] ) {
+	
+		pickerController.sourceType    = UIImagePickerControllerSourceTypePhotoLibrary;
+		pickerController.allowsEditing = YES;
+		pickerController.delegate      = self;
+		
+		[self presentViewController: pickerController
+						   animated: YES
+						 completion: NULL];
+		
+	}
+	
+}
+
+- (void)imagePickerController: (UIImagePickerController *)picker
+didFinishPickingMediaWithInfo: (NSDictionary *)info
+{
+	
+	[self dismissViewControllerAnimated: YES
+							 completion: NULL];
+	
+	UIImage *image = [info objectForKey: UIImagePickerControllerEditedImage];
+	
+	if ( image == nil ) {
+	
+		image = [info objectForKey: UIImagePickerControllerOriginalImage];
+		
+	}
 	
 	// Do something with the image
-	[self.imageView setImage:image];
-}
+	[self.imageView setImage: image];
+	
+	ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
+	
+	[lib writeImageToSavedPhotosAlbum: image.CGImage
+							 metadata: nil
+					  completionBlock: ^( NSURL* url, NSError* error ) {
+						  
+						  NSLog(@"Saved: %@<%@>", url, error);
+					  
+					  }];
 
-//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-//{
-//	// オリジナル画像
-//	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
-//	// 編集画像
-//	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
-//	UIImage *saveImage;
-//	
-//	if(editedImage)
-//	{
-//		saveImage = editedImage;
-//	}
-//	else
-//	{
-//		saveImage = originalImage;
-//	}
-//	
-//	// UIImageViewに画像を設定
-//	pictureImage.image = saveImage;
-//	
-//	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-//	{
-//		// カメラから呼ばれた場合は画像をフォトライブラリに保存してViewControllerを閉じる
-//		UIImageWriteToSavedPhotosAlbum(saveImage, nil, nil, nil);
-//		[self dismissViewControllerAnimated:YES completion:nil];
-//	}
-//	else
-//	{
-//		// フォトライブラリから呼ばれた場合はPopOverを閉じる（iPad）
-//////		[popover dismissPopoverAnimated:YES];
-//////		[popover release];
-//////		popover = nil;
-//	}
-//}
-//
-////-(void)targetImage:(UIImage*)image
-////didFinishSavingWithError:(NSError*)error contextInfo:(void*)context{
-////	
-////	if(error){
-////		// 保存失敗時
-////	}else{
-////		// 保存成功時
-////	}
-////}
-//
-//- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-//{
-//	
-//	 [[picker presentingViewController] dismissViewControllerAnimated: YES
-//														   completion: nil];
-//
-//	// 何かの処理
-//}
+	CLLocationDegrees lat = latitude;
+	CLLocationDegrees lon = longitude;
+	
+	if ( latitude_P_Old == 9999 && longitude_P_Old == 9999 ) {
+		
+		latitude_P_Old  = lat;
+		longitude_P_Old = lon;
+		
+		[self addAnnotation_Photo];
+		
+	} else {
+		
+		CLLocationDegrees _lat = lat - latitude_P_Old;
+		CLLocationDegrees _lon = lon - longitude_P_Old;
+		
+		if ( _lat < 0 ) _lat *= -1;
+		if ( _lon < 0 ) _lon *= -1;
+		
+		// 0.00007, 0.0001
+		if ( _lat > 0.0001 || _lon > 0.0001 ) {
+			
+			[self addAnnotation_Photo];
+			
+			latitude  = latitude_P_Old  = lat;
+			longitude = longitude_P_Old = lon;
+			
+		}
+		
+	}
+
+}
 
 - (void)     locationManager: (CLLocationManager *)manager
 didChangeAuthorizationStatus: (CLAuthorizationStatus)status
@@ -299,43 +301,6 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 	
 	heading = newHeading.trueHeading;
 	
-}
-
-- (IBAction)button_Camera_Action:(id)sender
-{
-
-	CLLocationDegrees lat = latitude;
-	CLLocationDegrees lon = longitude;
-	
-	if ( latitude_P_Old == 9999 && longitude_P_Old == 9999 ) {
-		
-		latitude_P_Old  = lat;
-		longitude_P_Old = lon;
-		
-		[self addAnnotation_Photo];
-		
-	} else {
-		
-		CLLocationDegrees _lat = lat - latitude_P_Old;
-		CLLocationDegrees _lon = lon - longitude_P_Old;
-		
-		if ( _lat < 0 ) _lat *= -1;
-		if ( _lon < 0 ) _lon *= -1;
-		
-		// 0.00007, 0.0001
-		if ( _lat > 0.0001 || _lon > 0.0001 ) {
-			
-			[self addAnnotation_Photo];
-			
-			latitude  = latitude_P_Old  = lat;
-			longitude = longitude_P_Old = lon;
-
-		}
-		
-	}
-	
-	//写真の登録
-
 }
 
 - (void) addAnnotation_Photo

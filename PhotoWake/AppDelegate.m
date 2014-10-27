@@ -14,11 +14,17 @@
 #import "CustomAnnotation_GPS_Old.h"
 
 @interface AppDelegate ()
+{
+
+@private
+
+	NSMutableData *receivedData;
+	
+}
 
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -61,26 +67,19 @@
 	
 	self.array_Hata = [[NSMutableArray alloc] init];
 	
-	CustomAnnotation_Hata *ca = [[CustomAnnotation_Hata alloc] init];
+	NSURL *url = [NSURL URLWithString:@"http://smartshinobu.miraiserver.com/tokushima/placetitle.php"];
 	
-	ca.coordinate  = CLLocationCoordinate2DMake( 34.074, 134.556 );
-	ca.no          = @"1";
-	ca.title       = @"徳島城跡 １";
-	ca.subtitle    = @"opening in Dec 1958";
-	ca.explanation = @"34.074, 134.556";
+	NSURLRequest       *request = [[NSURLRequest alloc] initWithURL: url];
+	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest: request
+																  delegate: self];
 	
-	[self.array_Hata addObject: ca];
+	// 作成に失敗する場合には、リクエストが送信されないので
+	// チェックする
+	if ( ! connection ) {
+		
+		NSLog(@"connection error.");
 	
-	
-	ca = [[CustomAnnotation_Hata alloc] init];
-	
-	ca.coordinate  = CLLocationCoordinate2DMake( 34.0743, 134.5558 );
-	ca.no          = @"2";
-	ca.title       = @"徳島城跡 ２";
-	ca.subtitle    = @"opening in Dec 1958";
-	ca.explanation = @"34.074, 134.556";
-	
-	[self.array_Hata addObject: ca];
+	}
 	
 }
 
@@ -105,6 +104,125 @@
 	self.array_GPSOld     = [[NSMutableArray alloc] init];
 	self.array_GPSOld_Add = [[NSMutableArray alloc] init];
 	
+}
+
+// データ受信時に１回だけ呼び出される。
+// 受信データを格納する変数を初期化する。
+- (void) connection: (NSURLConnection *)connection
+ didReceiveResponse: (NSURLResponse *)response
+{
+	
+	// receiveDataはフィールド変数
+	receivedData = [[NSMutableData alloc] init];
+
+}
+
+// データ受信したら何度も呼び出されるメソッド。
+// 受信したデータをreceivedDataに追加する
+- (void) connection: (NSURLConnection *)connection
+	 didReceiveData: (NSData *)data
+{
+
+	[receivedData appendData:data];
+
+}
+
+// データ受信が終わったら呼び出されるメソッド。
+- (void) connectionDidFinishLoading: (NSURLConnection *)connection
+{
+	
+	// 今回受信したデータはHTMLデータなので、NSDataをNSStringに変換する。
+	NSString *str = [[NSString alloc] initWithBytes: receivedData.bytes
+											  length: receivedData.length
+											encoding: NSUTF8StringEncoding];
+
+	str = [str stringByReplacingOccurrencesOfString: @"<!--/* Miraiserver \"NO ADD\" http://www.miraiserver.com */-->"
+										 withString: @""];
+	str = [str stringByReplacingOccurrencesOfString: @"<script type=\"text/javascript\" src=\"http://17787372.ranking.fc2.com/analyze.js\" charset=\"utf-8\"></script>"
+										 withString: @""];
+
+	NSData *trimdata = [str dataUsingEncoding:NSUTF8StringEncoding];
+
+	NSError *error;
+	NSArray *array = [NSJSONSerialization JSONObjectWithData: trimdata
+													 options: NSJSONReadingMutableContainers
+													   error: &error];
+
+	if ( error ) {
+		
+		NSLog( @"%@", error );
+		
+		return;
+		
+	}
+	
+	NSMutableArray *array_sort = [[NSMutableArray alloc] init];
+	
+	for ( NSDictionary *dic in array ) {
+	
+		NSMutableDictionary *dic_sort = [[NSMutableDictionary alloc] init];
+		
+		NSString *str_no = [dic objectForKey: @"id"];
+		NSString *str_id = [dic objectForKey: @"id"];
+		if ( [str_id length] == 1 ) {
+			str_id = [NSString stringWithFormat: @"0%@", str_id];
+		}
+		
+		[dic_sort setValue: str_no                          forKey: @"no"];
+		[dic_sort setValue: str_id                          forKey: @"id"];
+		[dic_sort setValue: [dic objectForKey: @"title"]    forKey: @"title"];
+		[dic_sort setValue: [dic objectForKey: @"subtitle"] forKey: @"subtitle"];
+		[dic_sort setValue: [dic objectForKey: @"lat"]      forKey: @"lat"];
+		[dic_sort setValue: [dic objectForKey: @"lng"]      forKey: @"lng"];
+	
+		[array_sort addObject: dic_sort];
+		
+	}
+	
+	NSSortDescriptor *sortDescNumber = [[NSSortDescriptor alloc] initWithKey: @"id"
+																   ascending: YES];
+
+	NSArray *sortDescArray = [NSArray arrayWithObjects: sortDescNumber, nil];
+
+	[array_sort sortUsingDescriptors: sortDescArray];
+	
+
+	NSMutableArray *array_hata = [[NSMutableArray alloc] init];
+	
+	for ( NSDictionary *dic in array_sort ) {
+		
+		NSString *str_lat = [dic objectForKey: @"lat"];
+		NSString *str_lng = [dic objectForKey: @"lng"];
+		
+		float float_lat = str_lat.floatValue;
+		float float_lng = str_lng.floatValue;
+		
+		CustomAnnotation_Hata *ca = [[CustomAnnotation_Hata alloc] init];
+		
+		ca.coordinate  = CLLocationCoordinate2DMake( float_lat, float_lng );
+		ca.no          = [dic objectForKey: @"no"];
+		ca.title       = [dic objectForKey: @"title"];
+		ca.subtitle    = [dic objectForKey: @"subtitle"];
+		ca.explanation = [NSString stringWithFormat: @"%@, %@", str_lat, str_lng];
+	
+		[array_hata addObject: ca];
+		
+	}
+	
+	[self.array_Hata addObjectsFromArray: array_hata];
+	
+}
+
+- (void)connection: (NSURLConnection *)connection
+  didFailWithError: (NSError *)error
+{
+
+	// エラー情報を表示する。
+	// objectForKeyで指定するKeyがポイント
+	NSLog(@"Connection failed! Error - %@ %@",
+		  [error localizedDescription],
+		  [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
+
 }
 
 @end

@@ -16,35 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr3-HF-Yts">
-                                <rect key="frame" x="250" y="457" width="101" height="86"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="9A4-xQ-eQ0"/>
-                                </constraints>
-                                <state key="normal" image="Camera">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="button_Camera_Action:" destination="5vH-Q6-fKz" eventType="touchUpInside" id="Ik0-GD-XUf"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9qq-R3-KFT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F86-5e-JFZ">
-                                <rect key="frame" x="16" y="28" width="568" height="21"/>
+                                <rect key="frame" x="16" y="85" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASL-1W-AXq">
+                                <rect key="frame" x="538" y="28" width="48" height="30"/>
+                                <state key="normal" title="Gallery">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="galleryButtonPressed:" destination="5vH-Q6-fKz" eventType="touchUpInside" id="aSb-B1-krz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9a-ho-NQK">
+                                <rect key="frame" x="16" y="28" width="54" height="30"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="5vH-Q6-fKz" eventType="touchUpInside" id="lqO-zc-jaY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dRz-Hk-lyV" firstAttribute="top" secondItem="Lr3-HF-Yts" secondAttribute="bottom" constant="8" symbolic="YES" id="6Zp-7s-ryJ"/>
-                            <constraint firstItem="Lr3-HF-Yts" firstAttribute="centerX" secondItem="beP-Fo-Fc6" secondAttribute="centerX" id="7DK-ee-atq"/>
-                            <constraint firstItem="Lr3-HF-Yts" firstAttribute="top" secondItem="VpX-pW-QS9" secondAttribute="bottom" constant="437" id="p1y-H5-cdB"/>
+                            <constraint firstAttribute="trailing" secondItem="ASL-1W-AXq" secondAttribute="trailing" constant="14" id="jaP-7U-JxD"/>
+                            <constraint firstItem="ASL-1W-AXq" firstAttribute="top" secondItem="VpX-pW-QS9" secondAttribute="bottom" constant="8" id="wJy-Nc-MOu"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" image="Camera" id="LRW-oF-pMf"/>
                     <connections>
-                        <outlet property="button_Camera" destination="Lr3-HF-Yts" id="ljX-4V-1Ek"/>
+                        <outlet property="imageView" destination="9qq-R3-KFT" id="Acj-TS-h8r"/>
                         <outlet property="label_1" destination="F86-5e-JFZ" id="QAF-jS-pkZ"/>
                     </connections>
                 </viewController>
