@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "CustomAnnotation_Hata.h"
+#import "CustomAnnotation_HataOk.h"
 #import "CustomAnnotation_Photo.h"
 #import "CustomAnnotation_GPS.h"
 #import "CustomAnnotation_GPS_Old.h"
@@ -65,7 +66,8 @@
 - (void)loadAnnotation_Hara
 {
 	
-	self.array_Hata = [[NSMutableArray alloc] init];
+	self.array_Hata   = [[NSMutableArray alloc] init];
+	self.array_HataOk = [[NSMutableArray alloc] init];
 	
 	NSURL *url = [NSURL URLWithString:@"http://smartshinobu.miraiserver.com/tokushima/placetitle.php"];
 	
@@ -207,8 +209,22 @@
 		ca.title       = [dic objectForKey: @"title"];
 		ca.subtitle    = [dic objectForKey: @"subtitle"];
 		ca.explanation = [NSString stringWithFormat: @"%@, %@", str_lat, str_lng];
-	
+		
 		[array_hata addObject: ca];
+
+		if ( [ca.no isEqualToString: @"1"] ) {
+			
+			CustomAnnotation_HataOk *ca = [[CustomAnnotation_HataOk alloc] init];
+			
+			ca.coordinate  = CLLocationCoordinate2DMake( float_lat, float_lng );
+			ca.no          = [dic objectForKey: @"no"];
+			ca.title       = [dic objectForKey: @"title"];
+			ca.subtitle    = [dic objectForKey: @"subtitle"];
+			ca.explanation = [NSString stringWithFormat: @"%@, %@", str_lat, str_lng];
+			
+			[self.array_HataOk addObject: ca];
+
+		}
 		
 	}
 	

@@ -453,6 +453,7 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status
 {
 
 	[self.mapView addAnnotations: app.array_Hata];
+	[self.mapView addAnnotations: app.array_HataOk];
 
 }
 

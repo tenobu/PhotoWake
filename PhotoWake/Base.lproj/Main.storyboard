@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0IH-BY-Ebu">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
@@ -212,7 +211,7 @@
         <!--Slideshow-->
         <scene sceneID="HPa-qN-Lcg">
             <objects>
-                <viewController id="G9W-2b-ijA" sceneMemberID="viewController">
+                <viewController id="G9W-2b-ijA" customClass="SlideshowViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bPR-4N-MBp"/>
                         <viewControllerLayoutGuide type="bottom" id="EeV-BI-eXy"/>
@@ -220,9 +219,58 @@
                     <view key="view" contentMode="scaleToFill" id="nhq-TR-ZLa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6B-js-WIC">
+                                <rect key="frame" x="196" y="513" width="30" height="30"/>
+                                <state key="normal" title="今日">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="today:" destination="G9W-2b-ijA" eventType="touchUpInside" id="1Ch-oo-nng"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1c7-GN-2y8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="505"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs8-Nr-eUr">
+                                <rect key="frame" x="375" y="513" width="30" height="30"/>
+                                <state key="normal" title="タグ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tag:" destination="G9W-2b-ijA" eventType="touchUpInside" id="LwA-YW-i0V"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kC-w39">
+                                <rect key="frame" x="193" y="242" width="215" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="LTx-vH-YyO"/>
+                                    <constraint firstAttribute="height" constant="21" id="gjp-z1-rgt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EeV-BI-eXy" firstAttribute="top" secondItem="gs8-Nr-eUr" secondAttribute="bottom" constant="8" id="77j-BR-6tK"/>
+                            <constraint firstItem="gs8-Nr-eUr" firstAttribute="top" secondItem="1c7-GN-2y8" secondAttribute="bottom" constant="8" id="AVG-lA-hzu"/>
+                            <constraint firstItem="s19-kC-w39" firstAttribute="centerY" secondItem="1c7-GN-2y8" secondAttribute="centerY" id="DZL-Y4-S8V"/>
+                            <constraint firstItem="1c7-GN-2y8" firstAttribute="leading" secondItem="nhq-TR-ZLa" secondAttribute="leading" id="KCL-FJ-11s"/>
+                            <constraint firstItem="Z6B-js-WIC" firstAttribute="leading" secondItem="nhq-TR-ZLa" secondAttribute="leading" constant="196" id="Ly3-FX-2j0"/>
+                            <constraint firstAttribute="trailing" secondItem="1c7-GN-2y8" secondAttribute="trailing" id="M1k-U6-OEx"/>
+                            <constraint firstItem="s19-kC-w39" firstAttribute="centerX" secondItem="1c7-GN-2y8" secondAttribute="centerX" id="SG3-ZP-uqQ"/>
+                            <constraint firstItem="EeV-BI-eXy" firstAttribute="top" secondItem="Z6B-js-WIC" secondAttribute="bottom" constant="8" id="g5I-O1-hV1"/>
+                            <constraint firstItem="1c7-GN-2y8" firstAttribute="top" secondItem="nhq-TR-ZLa" secondAttribute="top" id="tRs-NF-PB1"/>
+                            <constraint firstAttribute="trailing" secondItem="gs8-Nr-eUr" secondAttribute="trailing" constant="195" id="ySG-BB-fHR"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Slideshow" image="Slideshow" id="971-wE-KTF"/>
+                    <connections>
+                        <outlet property="imageview" destination="1c7-GN-2y8" id="vrX-tf-ysj"/>
+                        <outlet property="label" destination="s19-kC-w39" id="1I7-lC-gjA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IY-MA-n9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
