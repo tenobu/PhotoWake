@@ -38,7 +38,7 @@
 		98A07F3819FF16A10045CECC /* HanaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A07F3719FF16A10045CECC /* HanaView.xib */; };
 		98A07F3B19FF185E0045CECC /* HataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F3A19FF185E0045CECC /* HataView.m */; };
 		98F93F4319FF57AF00D2A30A /* CustomAnnotation_HataOk.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F4219FF57AF00D2A30A /* CustomAnnotation_HataOk.m */; };
-		98F93F4619FF5D8500D2A30A /* SlideshowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F4519FF5D8500D2A30A /* SlideshowViewController.m */; };
+		98F93F4919FF649B00D2A30A /* SlideshowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F93F4819FF649B00D2A30A /* SlideshowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +98,8 @@
 		98A07F3A19FF185E0045CECC /* HataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HataView.m; path = Tokushima/HataView.m; sourceTree = "<group>"; };
 		98F93F4119FF57AF00D2A30A /* CustomAnnotation_HataOk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation_HataOk.h; path = Tokushima/CustomAnnotation_HataOk.h; sourceTree = "<group>"; };
 		98F93F4219FF57AF00D2A30A /* CustomAnnotation_HataOk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation_HataOk.m; path = Tokushima/CustomAnnotation_HataOk.m; sourceTree = "<group>"; };
-		98F93F4419FF5D8500D2A30A /* SlideshowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideshowViewController.h; path = Slideshow/SlideshowViewController.h; sourceTree = "<group>"; };
-		98F93F4519FF5D8500D2A30A /* SlideshowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideshowViewController.m; path = Slideshow/SlideshowViewController.m; sourceTree = "<group>"; };
+		98F93F4719FF649B00D2A30A /* SlideshowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideshowViewController.h; path = ../../../../Downloads/Slideshow/PhotoWake/Slideshow/SlideshowViewController.h; sourceTree = "<group>"; };
+		98F93F4819FF649B00D2A30A /* SlideshowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideshowViewController.m; path = ../../../../Downloads/Slideshow/PhotoWake/Slideshow/SlideshowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,8 +243,8 @@
 		9890B3F319FA1CD200FC2E20 /* Slideshow */ = {
 			isa = PBXGroup;
 			children = (
-				98F93F4419FF5D8500D2A30A /* SlideshowViewController.h */,
-				98F93F4519FF5D8500D2A30A /* SlideshowViewController.m */,
+				98F93F4719FF649B00D2A30A /* SlideshowViewController.h */,
+				98F93F4819FF649B00D2A30A /* SlideshowViewController.m */,
 			);
 			name = Slideshow;
 			sourceTree = "<group>";
@@ -370,7 +370,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98F93F4619FF5D8500D2A30A /* SlideshowViewController.m in Sources */,
 				98A07F0E19FD1A790045CECC /* CustomAnnotation_Hata.m in Sources */,
 				98F93F4319FF57AF00D2A30A /* CustomAnnotation_HataOk.m in Sources */,
 				98A07F0D19FD1A790045CECC /* CustomAnnotation_GPS.m in Sources */,
@@ -383,6 +382,7 @@
 				98A07F1019FD1A790045CECC /* CustomAnnotation.m in Sources */,
 				98A07F3B19FF185E0045CECC /* HataView.m in Sources */,
 				9890B3A319F9F10600FC2E20 /* main.m in Sources */,
+				98F93F4919FF649B00D2A30A /* SlideshowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
