@@ -68,9 +68,9 @@
 	
 	locationManager = [[CLLocationManager alloc] init];
 
-	if ( SYSTEM_VERSION_EQUAL_TO(v) == 8 ) {
-		
-	}
+//	if ( SYSTEM_VERSION_EQUAL_TO(v) == 8 ) {
+//		
+//	}
 	[locationManager requestAlwaysAuthorization];
 	
 	locationManager.delegate = self;
