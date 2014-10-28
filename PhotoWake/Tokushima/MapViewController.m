@@ -13,6 +13,7 @@
 #import "CustomAnnotation_Photo.h"
 #import "CustomAnnotation_GPS.h"
 #import "CustomAnnotation_GPS_Old.h"
+#import "HataView.h"
 
 @interface MapViewController ()
 {
@@ -222,8 +223,11 @@ calloutAccessoryControlTapped: (UIControl *)control
 		
 		[ud setObject: ca.no forKey: @"Hata Data No"];
 		
-		[self performSegueWithIdentifier: @"segue hata"
-								  sender: self];
+//		[self performSegueWithIdentifier: @"segue hata"
+//								  sender: self];
+
+		
+		//HataView *hataView = [[HataView alloc] initWithFrame: frame];
 		
 	} else if ( [[ca class] isSubclassOfClass: [CustomAnnotation_Photo class]] ) {
 		

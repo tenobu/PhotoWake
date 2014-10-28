@@ -67,7 +67,10 @@
 	latitude_P_Old = longitude_P_Old = latitude_G_Old = longitude_G_Old = 9999;
 	
 	locationManager = [[CLLocationManager alloc] init];
-	
+
+	if ( SYSTEM_VERSION_EQUAL_TO(v) == 8 ) {
+		
+	}
 	[locationManager requestAlwaysAuthorization];
 	
 	locationManager.delegate = self;

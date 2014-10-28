@@ -168,9 +168,12 @@
 			str_id = [NSString stringWithFormat: @"0%@", str_id];
 		}
 		
+		NSString *title = [dic objectForKey: @"title"];
+		title = [NSString stringWithFormat: @"%@、%@", str_no, title];
+		
 		[dic_sort setValue: str_no                          forKey: @"no"];
 		[dic_sort setValue: str_id                          forKey: @"id"];
-		[dic_sort setValue: [dic objectForKey: @"title"]    forKey: @"title"];
+		[dic_sort setValue: title                           forKey: @"title"];
 		[dic_sort setValue: [dic objectForKey: @"subtitle"] forKey: @"subtitle"];
 		[dic_sort setValue: [dic objectForKey: @"lat"]      forKey: @"lat"];
 		[dic_sort setValue: [dic objectForKey: @"lng"]      forKey: @"lng"];

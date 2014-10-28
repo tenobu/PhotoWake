@@ -35,6 +35,8 @@
 		98A07F1119FD1A790045CECC /* HataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0919FD1A790045CECC /* HataViewController.m */; };
 		98A07F1219FD1A790045CECC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F0B19FD1A790045CECC /* MapViewController.m */; };
 		98A07F3619FD268D0045CECC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F3519FD268D0045CECC /* CameraViewController.m */; };
+		98A07F3819FF16A10045CECC /* HanaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A07F3719FF16A10045CECC /* HanaView.xib */; };
+		98A07F3B19FF185E0045CECC /* HataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A07F3A19FF185E0045CECC /* HataView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,9 @@
 		98A07F0B19FD1A790045CECC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Tokushima/MapViewController.m; sourceTree = "<group>"; };
 		98A07F3419FD268D0045CECC /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraViewController.h; path = Camera/CameraViewController.h; sourceTree = "<group>"; };
 		98A07F3519FD268D0045CECC /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraViewController.m; path = Camera/CameraViewController.m; sourceTree = "<group>"; };
+		98A07F3719FF16A10045CECC /* HanaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HanaView.xib; sourceTree = "<group>"; };
+		98A07F3919FF185E0045CECC /* HataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HataView.h; path = Tokushima/HataView.h; sourceTree = "<group>"; };
+		98A07F3A19FF185E0045CECC /* HataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HataView.m; path = Tokushima/HataView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +141,7 @@
 			children = (
 				9890B3AF19F9F10700FC2E20 /* LaunchScreen.xib */,
 				9890B3AA19F9F10700FC2E20 /* Main.storyboard */,
+				98A07F3719FF16A10045CECC /* HanaView.xib */,
 				9890B3A419F9F10700FC2E20 /* AppDelegate.h */,
 				9890B3A519F9F10700FC2E20 /* AppDelegate.m */,
 				9890B3F119FA1C8A00FC2E20 /* Tokushima */,
@@ -211,6 +217,8 @@
 				98A07F0719FD1A790045CECC /* CustomAnnotation.m */,
 				98A07F0819FD1A790045CECC /* HataViewController.h */,
 				98A07F0919FD1A790045CECC /* HataViewController.m */,
+				98A07F3919FF185E0045CECC /* HataView.h */,
+				98A07F3A19FF185E0045CECC /* HataView.m */,
 			);
 			name = Tokushima;
 			sourceTree = "<group>";
@@ -287,6 +295,7 @@
 				TargetAttributes = {
 					9890B39C19F9F10600FC2E20 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 4MR9PFC32K;
 					};
 					9890B3B519F9F10700FC2E20 = {
 						CreatedOnToolsVersion = 6.1;
@@ -322,6 +331,7 @@
 				9890B3AC19F9F10700FC2E20 /* Main.storyboard in Resources */,
 				9890B3CF19F9F44F00FC2E20 /* movie42.png in Resources */,
 				9890B3B119F9F10700FC2E20 /* LaunchScreen.xib in Resources */,
+				98A07F3819FF16A10045CECC /* HanaView.xib in Resources */,
 				9890B3FB19FA27EF00FC2E20 /* little25_2.png in Resources */,
 				9890B3CE19F9F44F00FC2E20 /* maps.png in Resources */,
 				9890B3DC19FA0E6600FC2E20 /* Tokushima_40x40.png in Resources */,
@@ -359,6 +369,7 @@
 				98A07F1119FD1A790045CECC /* HataViewController.m in Sources */,
 				98A07F0F19FD1A790045CECC /* CustomAnnotation_Photo.m in Sources */,
 				98A07F1019FD1A790045CECC /* CustomAnnotation.m in Sources */,
+				98A07F3B19FF185E0045CECC /* HataView.m in Sources */,
 				9890B3A319F9F10600FC2E20 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,10 +494,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PhotoWake/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -494,10 +509,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PhotoWake/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
