@@ -221,7 +221,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6B-js-WIC">
-                                <rect key="frame" x="196" y="513" width="30" height="30"/>
+                                <rect key="frame" x="97" y="513" width="30" height="30"/>
                                 <state key="normal" title="今日">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -232,15 +232,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1c7-GN-2y8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="505"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs8-Nr-eUr">
-                                <rect key="frame" x="375" y="513" width="30" height="30"/>
-                                <state key="normal" title="タグ">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tag:" destination="G9W-2b-ijA" eventType="touchUpInside" id="LwA-YW-i0V"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s19-kC-w39">
                                 <rect key="frame" x="193" y="242" width="215" height="21"/>
                                 <constraints>
@@ -251,6 +242,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs8-Nr-eUr">
+                                <rect key="frame" x="474" y="513" width="30" height="30"/>
+                                <state key="normal" title="タグ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tag:" destination="G9W-2b-ijA" eventType="touchUpInside" id="LwA-YW-i0V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -258,12 +258,12 @@
                             <constraint firstItem="gs8-Nr-eUr" firstAttribute="top" secondItem="1c7-GN-2y8" secondAttribute="bottom" constant="8" id="AVG-lA-hzu"/>
                             <constraint firstItem="s19-kC-w39" firstAttribute="centerY" secondItem="1c7-GN-2y8" secondAttribute="centerY" id="DZL-Y4-S8V"/>
                             <constraint firstItem="1c7-GN-2y8" firstAttribute="leading" secondItem="nhq-TR-ZLa" secondAttribute="leading" id="KCL-FJ-11s"/>
-                            <constraint firstItem="Z6B-js-WIC" firstAttribute="leading" secondItem="nhq-TR-ZLa" secondAttribute="leading" constant="196" id="Ly3-FX-2j0"/>
+                            <constraint firstItem="Z6B-js-WIC" firstAttribute="leading" secondItem="nhq-TR-ZLa" secondAttribute="leading" constant="97" id="Ly3-FX-2j0"/>
                             <constraint firstAttribute="trailing" secondItem="1c7-GN-2y8" secondAttribute="trailing" id="M1k-U6-OEx"/>
                             <constraint firstItem="s19-kC-w39" firstAttribute="centerX" secondItem="1c7-GN-2y8" secondAttribute="centerX" id="SG3-ZP-uqQ"/>
                             <constraint firstItem="EeV-BI-eXy" firstAttribute="top" secondItem="Z6B-js-WIC" secondAttribute="bottom" constant="8" id="g5I-O1-hV1"/>
                             <constraint firstItem="1c7-GN-2y8" firstAttribute="top" secondItem="nhq-TR-ZLa" secondAttribute="top" id="tRs-NF-PB1"/>
-                            <constraint firstAttribute="trailing" secondItem="gs8-Nr-eUr" secondAttribute="trailing" constant="195" id="ySG-BB-fHR"/>
+                            <constraint firstAttribute="trailing" secondItem="gs8-Nr-eUr" secondAttribute="trailing" constant="96" id="ySG-BB-fHR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Slideshow" image="Slideshow" id="971-wE-KTF"/>
